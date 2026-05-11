@@ -1,0 +1,6 @@
+services:
+  vue-app:
+    build: .
+    container_name: front_wurstmeister
+    ports:
+      - "5174:5174"
