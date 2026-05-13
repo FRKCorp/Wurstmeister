@@ -141,6 +141,9 @@
 
 
   @media screen and (min-width: 800px)and (max-width: 999px){
+    header{
+      width: 800px;
+    }
     .items{
       height: 467px;
     }

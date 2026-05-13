@@ -23,17 +23,11 @@ $moc: #FFA011; //самый частый оранжевый цвет
   {
     @include fonts($size: 48px, $family: ("Rubik Mono One", sans-serif), $color: white);
   }
-  @media screen and (min-width: 800px)and (max-width: 999px)
-  {
-    @mixin h2 {
+  @mixin h2_800 {
     @include fonts($size: 40px, $family: ("Rubik Mono One", sans-serif), $color: white);
-    }
   }
-  @media screen and (min-width: 400px)and (max-width: 799px)
-  {
-    @mixin h2 {
+  @mixin h2_400 {
     @include fonts($size: 24px, $family: ("Rubik Mono One", sans-serif), $color: white);
-    }
   }
 
 

@@ -54,9 +54,14 @@
       font-size: 35px;
     }
   }
+  @media screen and (min-width: 801px) and (max-width: 999px){
+    .advantage_p{
+      font-size: 35px;
+    }
+  }
 
 
-  @media screen and (min-width: 800px)and (max-width: 999px){
+  @media screen and (min-width: 400px)and (max-width: 800px){
     .advantage{
       height: 174px;
     }
@@ -73,7 +78,7 @@
   }
 
 
-  @media screen and (min-width: 400px)and (max-width: 799px){
+  @media screen and (max-width: 400px){
     .advantage{
       height: 110px;
     }

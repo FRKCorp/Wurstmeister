@@ -17,6 +17,7 @@ provide("menu-textes", menu_textes)
   <AboutUsComponent />
   <IngredientsComponent />
   <ContactBlock />
+
 </template>
 
 <style scoped>
