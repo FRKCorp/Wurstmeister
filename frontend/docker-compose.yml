@@ -1,6 +1,6 @@
 services:
   vue-app:
     build: .
-    container_name: front_wurstmeister
+    container_name: front_wrstm
     ports:
-      - "5173:5173"
+      - "3000:3000"

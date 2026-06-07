@@ -11,12 +11,12 @@
     <div class="content">
       <header>
         <img class="logo_image" src="/logo_wurst.png">
-        <h1>WURSTMEISTER-Больше, чем добавки</h1>
-        <h3>основа идеального вкуса</h3>
+        <h1>О КОМПАНИИ WURSTMEISTER</h1>
+        <button class="to_form_button">
+          Смотреть товары
+        </button>
       </header>
-      <button class="to_form_button">
-        Смотреть товары
-      </button>
+
     </div>
 
   </div>
@@ -78,20 +78,12 @@
     width: 685px;
   }
 
-  h3 {
-    @include fonts(
-      $size: 40px,
-      $family: (Roboto Condensed, sans-serif),
-      $weight: 400,
-      $transform: lowercase
-    );
-  }
-
   .to_form_button {
-    @include button(1016px, 66px, 25px, transparent, (3px solid white));
+    @include button(501px, 59px, 30px, linear-gradient(-114deg, $moc 9%, #623700 51%,$moc 90%), (2px solid $moc));
     @include fonts(36px, (Roboto Condensed, sans-serif), $weight: 300, $transform: none, $align: center);
     position: relative;
     z-index: 2;
+    margin-top: 50px;
   }
 
 
@@ -168,9 +160,6 @@
       font-size: 42px;
       width: 534px;
     }
-    h3{
-      font-size: 36px;
-    }
 
     .logo_image {
       @include img(105px, 84px, 0px);
@@ -199,9 +188,6 @@
     h1{
       font-size: 26px;
       width: 292px;
-    }
-    h3{
-      font-size: 18px;
     }
 
     .logo_image {

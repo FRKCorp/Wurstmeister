@@ -6,46 +6,43 @@
   <div class="about">
     <div class="about_group">
       <div class="textes">
-      <h3>
-        о нас
-      </h3>
-      <p class="p_about">
-        WURSTMEISTER — решения для мясоперерабатывающей промышленности.
-  Вкусо-ароматические и функциональные добавки для создания продуктов высокого качества — от классических до изысканных.
-
-  Международная сертификация (ISO 22000, HALAL), надёжная упаковка, современные разработки и экспертная поддержка обеспечивают стабильный результат и доверие производителей.
-      </p>
+        <h3>
+          Производство
+        </h3>
+        <p class="p_about">
+          <strong>Ингредиенты WURSTMEISTER используются как для изготовления премиальных деликатесов, так и для производства продукции эконом-класса.</strong>
+          При создании продукции WURSTMEISTER использован 20-летний опыт разработки вкусо-ароматических и функциональных добавок и партнёрства с мясопереработчиками. Качество добавок подтверждено лабораторными исследованиями и одобрено десятками технологов с учётом международных вкусов. Вся продукция изготовлена по стандарту ISO 22000 и расфасована в высокобарьерную металлизированную упаковку, защищающую свойства ингредиентов от внешней среды и света.        </p>
+      </div>
     </div>
-    </div>
-
   </div>
 </template>
 
 <style scoped lang="scss">
   @use "@/styles/styles" as *;
   .about{
-
     @include display(center,center,$gap: 17px, $flex-direction: column);
-    @include block($height: 707px,$color: url("/about.png"));
+    @include block($height: 751px, $color: url("/AboutViewProductionBG.png"));
   }
   .about_group{
-    width: 1650px;
+    width: 1700px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   .textes{
     @include display(flex-start, flex-start, 17px, column);
-    @include block($width: 715px,$height: 525px, $color: transparent);
+    @include block($width: 715px,$height: 647px, $color: transparent);
   }
   h3{
     @include fonts($size: 48px, $family: (Rubik Mono One, sans-serif), $weight: 400);
     width: 685px;
   }
   .p_about {
-    @include fonts($size: 36px, $family: (Roboto Condensed, sans-serif), $weight: 300);
+    @include fonts($size: 32px, $family: (Roboto Condensed, sans-serif), $weight: 300, $transform: none);
     width: 714px;
   }
-
+  strong{
+    font-weight: 500;
+  }
 
   @media screen and (max-width: 1280px){
     h3{
