@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {provide} from "vue";
-import HeaderAbout from "@/site_block_components/HeaderAbout.vue";
-import AboutCompany from "@/site_block_components/AboutCompany.vue";
-import AboutProduction from "@/site_block_components/AboutProduction.vue";
-import QualityComponent from "@/site_block_components/QualityComponent.vue";
+import HeaderAbout from "@/AboutViewComponents/HeaderAbout.vue";
+import AboutCompany from "@/AboutViewComponents/AboutCompany.vue";
+import AboutProduction from "@/AboutViewComponents/AboutProduction.vue";
+import QualityComponent from "@/AboutViewComponents/QualityComponent.vue";
 
 const name = "О КОМПАНИИ WURSTMEISTER"
 

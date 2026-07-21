@@ -1,10 +1,30 @@
 <script setup lang="ts">
 
-import MenuComponent from "@/site_block_components/MenuComponent.vue";
+import MenuComponent from "@/components/MenuComponent.vue";
 import {provide} from "vue";
-import ContactBlock from "@/site_block_components/ContactBlock.vue";
+import ContactBlock from "@/HomeViewComponents/ContactBlock.vue";
 
-const menu_textes = [{"name":'Главная', "url": "/"}, {"name": 'О нас', "url": "about"}, {"name": 'продукция', "url": "/production"}, {"name": 'контакты', "url": "/contacts"}];
+const menu_textes = [
+    {
+      "name":'Главная',
+      "url": "/"
+    },
+    {
+      "name": 'О нас',
+      "url": "about"
+    },
+    {
+      "name": 'продукция',
+      "url": "/production"
+    },
+    {
+      name: 'контакты',
+      url: {
+        path: '/',
+        hash: '#contacts'
+      }
+    },
+];
 provide("menu", menu_textes)
 
 
