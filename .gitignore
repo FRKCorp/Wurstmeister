@@ -1,4 +1,6 @@
-# Python
+# =====================
+# Python (backend)
+# =====================
 __pycache__/
 *.pyc
 *.pyo
@@ -6,11 +8,65 @@ __pycache__/
 venv/
 *.egg-info/
 
-# Переменные окружения
+# =====================
+# env
+# =====================
 .env
 *.env
+!*.env.example
 
-# Node.js
+# =====================
+# Node.js / Vite (frontend)
+# =====================
 node_modules/
 dist/
+dist-ssr/
 .nuxt/
+*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Vite
+*.timestamp-*-*.mjs
+
+# TypeScript
+*.tsbuildinfo
+
+# ESLint
+.eslintcache
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest
+__screenshots__/
+
+# =====================
+# IDE / Editors
+# =====================
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# =====================
+# OS
+# =====================
+.DS_Store
+
+# =====================
+# Coverage
+# =====================
+coverage/

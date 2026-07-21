@@ -6,12 +6,6 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+EXPOSE 5173
 
-RUN npm run build
-
-RUN npm install -g serve
-
-EXPOSE 3000
-
-CMD ["serve", "-s", "dist", "-l", "3000"]
+CMD ["npm", "run", "dev", "--", "--host"]
