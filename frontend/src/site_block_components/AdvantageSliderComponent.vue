@@ -51,17 +51,18 @@
 
   @media screen and (min-width: 1000px) and (max-width: 1149px){
     .advantage_p{
-      font-size: 35px;
+      font-size: 30px;
     }
   }
   @media screen and (min-width: 801px) and (max-width: 999px){
     .advantage_p{
       font-size: 35px;
+      width: 550px;
     }
   }
 
 
-  @media screen and (min-width: 400px)and (max-width: 800px){
+  @media screen and (min-width: 600px)and (max-width: 800px){
     .advantage{
       height: 174px;
     }
@@ -69,8 +70,8 @@
       gap: 25px;
     }
     .advantage_p{
-      font-size: 32px;
-      width: 500px;
+      font-size: 30px;
+      width: 327px;
     }
     .advantage_img{
       @include img(131px,131px,90px);
@@ -78,7 +79,7 @@
   }
 
 
-  @media screen and (max-width: 400px){
+  @media screen and (max-width: 600px){
     .advantage{
       height: 110px;
     }
@@ -87,7 +88,7 @@
     }
     .advantage_p{
       font-size: 15px;
-      width: 300px;
+      width: 230px;
     }
     .advantage_img{
       @include img(72px,72px,90px);

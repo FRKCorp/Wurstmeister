@@ -5,8 +5,8 @@ import MenuButton from "@/components/Menu-button.vue"
 const isMenuOpen = ref(false)
 const windowWidth = ref(window.innerWidth)
 
-const textes = inject("menu-textes", ["Главная", "О нас", "Продукция"])
-
+const textes = inject("menu")
+console.log(textes);
 const closeMenu = () => {
   isMenuOpen.value = false
 }
@@ -16,7 +16,7 @@ let resizeHandler: (() => void) | null = null
 onMounted(() => {
   resizeHandler = () => {
     windowWidth.value = window.innerWidth
-    if (windowWidth.value > 800) {
+    if (windowWidth.value > 880) {
       isMenuOpen.value = false
     }
   }
@@ -33,56 +33,47 @@ onUnmounted(() => {
 
 <template>
   <div class="menu">
-    <!-- Логотип -->
-    <p>
-      <span class="name">WURST</span>
-      <span class="name" style="color: #FE9809">MEISTER</span>
-    </p>
-
-    <!-- Десктоп меню (от 801px и выше) -->
-    <div class="desktop-menu">
-      <div class="menu-items">
-        <a
-          v-for="item in textes"
-          :key="item"
-          href="#"
-          class="menu-button-text"
-        >
-          {{ item }}
-        </a>
+    <div class="menu_labels">
+      <RouterLink to="/">
+        <span class="name">WURST</span>
+        <span class="name" style="color: #FE9809">MEISTER</span>
+      </RouterLink>
+      <div class="desktop-menu">
+        <div class="menu-items">
+          <RouterLink v-for="item in textes" :key="item"  class="menu-button-text" :to="item.url">
+            {{item.name}}
+          </RouterLink>
+        </div>
+        <button class="menu-button">ОСТАВИТЬ ЗАЯВКУ</button>
       </div>
-      <button class="menu-button">ОСТАВИТЬ ЗАЯВКУ</button>
-    </div>
+      <div class="mobile-header-right">
+        <button
+          class="menu-button mobile-request-btn"
+          @click="closeMenu"
+        >
+          ОСТАВИТЬ ЗАЯВКУ
+        </button>
 
-    <!-- Мобильная панель: кнопка + бургер (до 800px) -->
-    <div class="mobile-header-right">
-      <button
-        class="menu-button mobile-request-btn"
-        @click="closeMenu"
-      >
-        ОСТАВИТЬ ЗАЯВКУ
-      </button>
-
-      <MenuButton
-        :is-open="isMenuOpen"
-        @toggle="isMenuOpen = !isMenuOpen"
-      />
+        <MenuButton
+          :is-open="isMenuOpen"
+          @toggle="isMenuOpen = !isMenuOpen"
+        />
+      </div>
     </div>
   </div>
 
-  <!-- Полноэкранное мобильное меню -->
   <transition name="fade">
     <div v-if="isMenuOpen" class="mobile-menu">
       <div class="mobile-menu-content">
-        <a
+        <RouterLink
           v-for="item in textes"
           :key="item"
-          href="#"
           class="mobile-menu-item"
           @click="closeMenu"
+          :to="item.url"
         >
-          {{ item }}
-        </a>
+          {{ item.name }}
+        </RouterLink>
       </div>
     </div>
   </transition>
@@ -92,23 +83,25 @@ onUnmounted(() => {
 @use "@/styles/styles" as *;
 
 .menu {
-  @include display($gap: 970px, $flex-direction: row, $justify-content: center);
-  @include block($height: 92px, $color: black);
+  @include display($flex-direction: row, $justify-content: center);
+  @include block($width:100%, $height: 92px, $color: black);
   position: relative;
   z-index: 1001;
 }
-
+.menu_labels{
+  @include display($flex-direction: row, $justify-content: space-between);
+  @include block($width: 1700px, $height: 100%) ;
+}
 .name {
   @include fonts($size: 24px, $weight: 900);
 }
 
-/* ==================== ДЕСКТОП ==================== */
 .desktop-menu {
   display: flex;
   align-items: center;
   gap: 30px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 880px) {
     display: none;
   }
 }
@@ -146,13 +139,13 @@ onUnmounted(() => {
   align-items: center;
   gap: 20px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 880px) {
     display: flex;
   }
 }
 
 .mobile-request-btn {
-  @media (max-width: 800px) {
+  @media (max-width: 880px) {
     display: block;
     width: 170px;
     height: 40px;
@@ -160,7 +153,7 @@ onUnmounted(() => {
   }
 }
 
-/* Полноэкранное меню */
+
 .mobile-menu {
   position: fixed;
   top: 92px;
@@ -195,7 +188,7 @@ onUnmounted(() => {
   }
 }
 
-/* Анимация */
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s ease;
@@ -205,8 +198,8 @@ onUnmounted(() => {
   opacity: 0;
 }
 
-/* Общий адаптив */
-@media (max-width: 800px) {
+
+@media (max-width: 880px) {
   .menu {
     justify-content: space-between;
     padding: 0 20px;
@@ -214,17 +207,19 @@ onUnmounted(() => {
   }
 }
 
-/* Твои предыдущие медиа-запросы (если нужны) */
+
+
 @media screen and (min-width: 1280px) and (max-width: 1650px) {
-  .menu { gap: 500px; }
+  .menu_labels {
+    width: 1240px;
+  }
 }
 @media screen and (min-width: 1150px) and (max-width: 1279px) {
-  .menu { gap: 400px; }
+  .menu_labels { width: 1150px }
 }
 @media screen and (min-width: 1001px) and (max-width: 1149px) {
-  .menu { gap: 200px; }
+  .menu_labels { width: 1000px }
 }
 @media screen and (min-width: 801px) and (max-width: 1000px) {
-  .menu { gap: 70px; }
 }
 </style>

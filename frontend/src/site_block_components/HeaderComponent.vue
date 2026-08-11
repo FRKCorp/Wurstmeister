@@ -4,30 +4,19 @@
 
 <template>
   <div class="items">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      class="bg-video"
-    >
+    <video autoplay muted loop playsinline preload="auto" class="bg-video">
       <source src="/header_video.mp4" type="video/mp4">
     </video>
 
     <div class="content">
-
       <header>
         <img class="logo_image" src="/logo_wurst.png">
-        <h1>WURSTMEISTER-Больше,
-          чем добавки</h1>
+        <h1>WURSTMEISTER-Больше, чем добавки</h1>
         <h3>основа идеального вкуса</h3>
       </header>
-
       <button class="to_form_button">
         Смотреть товары
       </button>
-
     </div>
 
   </div>
@@ -41,7 +30,7 @@
     position: relative;
     overflow: hidden;
     @include display(center, center, 144px, column);
-    @include block(1900px, 698px, $color: black);
+    @include block(100%, 698px, $color: black);
   }
   .bg-video {
     position: absolute;
@@ -168,15 +157,48 @@
       right: -100px;
     }
   }
+  @media screen and (min-width: 600px)and (max-width: 799px) {
+    header{
+      width: 534px;
+    }
+    .items{
+      height: 461px;
+    }
+    h1{
+      font-size: 42px;
+      width: 534px;
+    }
+    h3{
+      font-size: 36px;
+    }
 
-
-  @media screen and (min-width: 400px)and (max-width: 799px){
+    .logo_image {
+      @include img(105px, 84px, 0px);
+    }
+    .to_form_button {
+      @include button(298px, 50px, 30px, linear-gradient(-122deg, $moc 9%, #623700 51%, $moc 90%), (1px solid $moc));
+      @include fonts(28px, (Roboto Condensed, sans-serif), $weight: 400, $transform: none, $align: center);
+    }
+    .content{
+      gap: 29px;
+      align-items: flex-start;
+    }
+    .bg-video{
+      height: 467px;
+      width: 757px;
+      right: -100px;
+    }
+  }
+  @media screen and (min-width: 400px)and (max-width: 600px){
+    header{
+      width: 350px;
+    }
     .items {
       height: 262px;
     }
     h1{
       font-size: 26px;
-      width: 342px;
+      width: 292px;
     }
     h3{
       font-size: 18px;
