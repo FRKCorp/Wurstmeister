@@ -58,25 +58,28 @@
 
   @media screen and (min-width: 1150px) and (max-width: 1279px){
     h3{
-      font-size: 36px;
+      @include h2_800();
     }
     .about_group{
-      width: 800px;
+      width: 1150px;
     }
   }
 
 
   @media screen and (min-width: 1000px) and (max-width: 1149px){
     h3{
-      font-size: 30px;
+      font-size: 40px;
     }
     .about_group{
-      width: 800px;
+      width: 1000px;
+    }
+    .p_about{
+      font-size: 30px;
     }
   }
 
 
-  @media screen and (min-width: 401px)and (max-width: 800px){
+  @media screen and (min-width: 601px)and (max-width: 800px){
     h3{
       @include h2_800
     }
@@ -92,7 +95,7 @@
   }
 
 
-  @media screen and (max-width: 400px){
+  @media screen and (max-width: 600px){
     h3{
       @include h2_400();
     }
@@ -101,9 +104,16 @@
     }
     .about{
       align-items: flex-end;
+
     }
     .about_group{
       width: 265px;
+      height: 266px;
+      padding-right: 20px;
+    }
+    .about{
+      height: 353px;
+      background: url("/about_mobile.png");
     }
   }
 </style>

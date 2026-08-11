@@ -19,19 +19,6 @@ $moc: #FFA011; //самый частый оранжевый цвет
     text-align: $align;
     margin: $margin;
   }
-  @mixin h2
-  {
-    @include fonts($size: 48px, $family: ("Rubik Mono One", sans-serif), $color: white);
-  }
-  @mixin h2_800 {
-    @include fonts($size: 40px, $family: ("Rubik Mono One", sans-serif), $color: white);
-  }
-  @mixin h2_400 {
-    @include fonts($size: 24px, $family: ("Rubik Mono One", sans-serif), $color: white);
-  }
-
-
-
 
   @mixin display
   (
@@ -106,3 +93,40 @@ $moc: #FFA011; //самый частый оранжевый цвет
     background-color: transparent;
   }
 
+@mixin h2
+{
+  @include fonts($size: 48px, $family: ("Rubik Mono One", sans-serif), $color: white);
+}
+@mixin h2_800 {
+  @include fonts($size: 40px, $family: ("Rubik Mono One", sans-serif), $color: white);
+}
+@mixin h2_400 {
+  @include fonts($size: 24px, $family: ("Rubik Mono One", sans-serif), $color: white);
+}
+
+@mixin width_screen(){ width: 97%; }
+
+@mixin width_1280()
+{
+
+}
+@mixin width_1150()
+{
+
+}
+@mixin width_1000()
+{
+
+}
+@mixin width_800()
+{
+
+}
+@mixin width_600()
+{
+
+}
+@mixin width_400()
+{
+
+}
