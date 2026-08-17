@@ -99,14 +99,17 @@
   @media screen and (min-width: 601px)and (max-width: 799px){
     h3{
       font-size: 37px;
+      width: 495px;
     }
     .p_about{
       font-size: 26px;
-      width: 262px;
+      width: 495px;
     }
     .about{
       align-items: center;
-      height: 650px;
+      height: auto;
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
     .about_group{
       @include width_screen;
@@ -114,7 +117,32 @@
   }
 
 
-  @media screen and (max-width: 600px){
+  @media screen and (min-width: 400px) and (max-width: 600px){
+    h3{
+      @include h2_400();
+      width: 262px;
+    }
+    .p_about{
+      font-size: 17px;
+      width: 262px;
+    }
+    .about{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 600px;
+    }
+    .textes{
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .about_group{
+      @include width_screen;
+      height: 266px;
+    }
+  }
+  @media screen and (max-width: 400px){
     h3{
       @include h2_400();
       width: 262px;

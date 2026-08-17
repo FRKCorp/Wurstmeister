@@ -99,11 +99,13 @@
     }
     .p_about{
       font-size: 26px;
-      width: 262px;
+      width: 495px;
     }
     .about{
       align-items: center;
-      height: 620px;
+      height: auto;
+      padding-bottom: 40px;
+      padding-top: 40px;
     }
     .about_group{
       @include width_screen;
@@ -111,9 +113,34 @@
   }
 
 
-  @media screen and (max-width: 600px){
+  @media screen and (min-width: 400px) and (max-width: 600px){
     h3{
-      @include h2_400();
+      @include h2_400;
+    }
+    .p_about{
+      font-size: 17px;
+      width: 262px;
+    }
+    .about{
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 510px;
+    }
+    .textes{
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+    }
+    .about_group{
+      @include width_screen;
+      height: auto;
+    }
+  }
+  @media screen and (max-width: 400px){
+    h3{
+      @include h2_400;
     }
     .p_about{
       font-size: 16px;

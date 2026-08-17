@@ -55,6 +55,7 @@
   @media screen and (min-width: 1000px) and (max-width: 1149px){
     .advantage_p{
       font-size: 30px;
+      width: 630px;
     }
   }
   @media screen and (min-width: 801px) and (max-width: 999px){

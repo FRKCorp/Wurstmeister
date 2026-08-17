@@ -31,7 +31,7 @@ provide("menu", menu_textes)
 </script>
 
 <template>
-  <MenuComponent />
+  <MenuComponent/>
   <main>
     <RouterView />
   </main>

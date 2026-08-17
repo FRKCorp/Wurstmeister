@@ -2,31 +2,31 @@
 const quailites = [
     {
       "name": "Выбор поставщиков и закупка ингредиентов",
-      "description": "Сотрудничаем с надежными поставщиками с многолетней репутацией"
+      "description": "Сотрудничаем с надежными поставщиками с многолетней репутацией"
     },
     {
       "name": "ПРИЕМ СЫРЬЯ",
-      "description": "На данном этапе происходит отбор проб для анализа"
+      "description": "На данном этапе происходит отбор проб для анализа"
     },
     {
       "name": "ВРЕМЕННОЕ ХРАНЕНИЕ",
-      "description": "Сырье заблокированно до момента проверки в лаборатории"
+      "description": "Сырье заблокированно до момента проверки в лаборатории"
     },
     {
       "name": "АНАлиз сырья",
-      "description": "Проверка происходит в лаборатории в соответствии с критериями качества"
+      "description": "Проверка происходит в лаборатории в соответствии с критериями качества"
     },
     {
       "name": "ХРАНЕНИЕ ПО ПРИНЦИПУ FIFO",
-      "description": "проверенное сырье хранится в специально контролируемых условиях"
+      "description": "проверенное сырье хранится в специально контролируемых условиях"
     },
     {
       "name": "ПОДГОТОВКА И СМЕШИВАНИЕ СЫРЬЯ",
-      "description": "Дозировка четко контролируется в сооответствии с рецептурой"
+      "description": "Дозировка четко контролируется в сооответствии с рецептурой"
     },
     {
       "name": "ПОВТОРНАЯ ПРОВЕРКА КАЧЕСТВА",
-      "description": "Даный этап проверки носит формальный характер, но является обязательным"
+      "description": "Даный этап проверки носит формальный характер, но является обязательным"
     },
     {
       "name": "УПАКОВКА ГОТОВОЙ ПРОДУКЦИИ",
@@ -121,13 +121,15 @@ h2 {
     @include width_screen;
   }
   .quality_block {
-    height: 1500px;
+    height: auto;
+    padding-top: 82px;
+    padding-bottom: 50px;
   }
   .qualities {
     gap: 50px;
   }
   .quality {
-    width: 450px;
+    width: 29%;
     height: 205px;
   }
 }
@@ -138,13 +140,15 @@ h2 {
   }
 
   .quality_block {
-    height: 1400px;
+    height: auto;
+    padding-top: 82px;
+    padding-bottom: 50px;
   }
   .qualities {
     gap: 45px;
   }
   .quality {
-    width: 420px;
+    width: 29%;
     height: 195px;
   }
   .number {
@@ -160,7 +164,9 @@ h2 {
 
 @media screen and (min-width: 1000px) and (max-width: 1149px) {
   .quality_block {
-    height: 1300px;
+    height: auto;
+    padding-top: 82px;
+    padding-bottom: 50px;
     align-items: center;
     justify-content: center;
     background: url("/About_Quality_1300.png") left top / cover;
@@ -174,10 +180,6 @@ h2 {
   .qualities{
     height: 1050px;
   }
-  .quality {
-    width: 380px;
-    height: 190px;
-  }
   .quality_description {
     padding: 70px 30px 25px 30px;
   }
@@ -185,7 +187,9 @@ h2 {
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
   .quality_block {
-    height: 1100px;
+    height: auto;
+    padding-top: 82px;
+    padding-bottom: 50px;
     align-items: center;
     justify-content: center;
     background: url("/QualityBG.png") left top / cover;
@@ -217,7 +221,9 @@ h2 {
 
 @media screen and (min-width: 600px) and (max-width: 799px) {
   .quality_block {
-    height: 1900px;
+    height: auto;
+    padding-top: 82px;
+    padding-bottom: 50px;
     background: url("/About_Quality.png") left top / cover;
   }
   .quality_section{
@@ -233,7 +239,7 @@ h2 {
     height: 175px;
   }
   h2 {
-    @include h2_400;
+    @include h2_800;
   }
   .number {
     font-size: 32px;
@@ -247,44 +253,113 @@ h2 {
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 599px) {
+/* Сетка 2x4 для диапазона 600–1024px (соответствует макетам 800 и 1024).
+   Расположено после предыдущих медиа-запросов, поэтому в зоне
+   пересечения (600-799, 800-999, 1000-1024) эти правила для
+   .qualities и .quality побеждают в каскаде.
+   Выше 1024px раскладка остаётся прежней (старые брейкпоинты не трогаем). */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .quality_section{
+    align-items: center;
+    justify-content: center;
+  }
+  h2{
+    @include width_screen;
+    text-align: start;
+  }
+  .qualities {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 40px;
+    height: auto;
+    @include width_screen;
+  }
+  .quality {
+    width: 100%;
+    height: 190px;
+  }
+}
+
+/* 450–599px: 2 колонки */
+@media screen and (min-width: 471px) and (max-width: 599px) {
+  .quality_section{
+    align-items: center;
+    height: auto;
+    @include width_screen;
+  }
+  .qualities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    height: auto;
+    @include width_screen;
+  }
+  .quality {
+    width: 45%;
+    height: 170px;
+    box-shadow: 0 0 0 10px rgb(28, 21, 10);
+  }
+  h2{
+    font-size: 28px;
+    text-align: start;
+    @include width_screen;
+  }
+  .q_p{
+    font-size: 16px;
+  }
+  .quality_description{
+    font-size: 14px;
+    padding-top: 100px;
+  }
+  .number{
+    font-size: 35px;
+  }
+}
+
+/* <450px: 1 колонка */
+@media screen and (max-width: 470px) {
   .quality_block {
-    height: 1500px;
-    background: url("/About_Quality.png") left top / cover no-repeat;
-    width: 400px;
+    height: auto;
+    padding-top: 52px;
+    align-items: center;
+    padding-bottom: 40px;
   }
   .quality_section{
     @include width_screen;
   }
   .qualities {
+    display: flex;
     flex-direction: column;
-    height: auto;
+    align-items: center;
     gap: 40px;
-
+    height: auto;
+    @include width_screen;
   }
   .quality {
-    width: 312px;
-    height: 133px;
-    margin: 0;
-    box-shadow: 0 0 0 10px rgba(28, 21, 10, 1);
+    width: 75%;
+    height: 140px;
+    box-shadow: 0 0 0 12px rgba(28, 21, 10, 1);
+  }
+  h2{
+    font-size: 28px;
+    @include width_screen;
+    text-align: start;
+  }
+  .q_p{
+    font-size: 17px;
   }
   .quality_name{
-    height: 58px;
+    height: 60px;
   }
-  h2 {
-    @include h2_400;
-  }
-  .number {
-    font-size: 35px;
-  }
-  .q_p {
-    font-size: 17px;
-    width: 75%;
-  }
-  .quality_description {
+  .quality_description{
     font-size: 15px;
-    height: 133px;
-    padding: 55px 18px 0px 18px;
+    height: 100%;
+    padding-top: 70px;
+  }
+  .number{
+    font-size: 35px;
   }
 }
 </style>
