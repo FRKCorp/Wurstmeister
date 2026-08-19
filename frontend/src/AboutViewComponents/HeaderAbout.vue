@@ -205,5 +205,32 @@
       right: -100px;
     }
   }
+  @media screen and (max-width: 400px) {
+    .content {
+      @include width_screen;
+      gap: 22px;
+      align-items: flex-start;
+    }
+    .items {
+      height: 262px;
+    }
+    h1 {
+      font-size: 26px;
+      @include width_screen;
+    }
+
+    .logo_image {
+      @include img(65px, 52px, 0px);
+    }
+    .to_form_button {
+      @include button(149px, 30px, 30px, linear-gradient(-122deg, $moc 9%, #623700 51%, $moc 90%), (1px solid $moc));
+      @include fonts(13px, (Roboto Condensed, sans-serif), $weight: 400, $transform: none, $align: center);
+    }
+    .bg-video {
+      height: 282px;
+      width: 491px;
+      right: -100px;
+    }
+  }
 
 </style>

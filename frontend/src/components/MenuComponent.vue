@@ -226,7 +226,16 @@ onUnmounted(() => {
 @media screen and (min-width: 601px)and (max-width: 799px){
   .menu_labels { width: 97% }
 }
-@media screen and (max-width: 600px){
+@media screen and (min-width: 401px) and (max-width: 600px){
   .menu_labels { width: 97% }
+}
+@media screen and (max-width: 400px){
+  .menu_labels { width: 97% }
+  .mobile-request-btn{
+    width: 140px;
+  }
+  .mobile-header-right{
+    gap: 10px;
+  }
 }
 </style>
