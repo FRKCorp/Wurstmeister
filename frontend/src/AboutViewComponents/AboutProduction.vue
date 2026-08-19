@@ -21,24 +21,33 @@
   @use "@/styles/styles" as *;
   .about{
     @include display(center,center,$gap: 17px, $flex-direction: column);
-    @include block($height: 751px, $color: url("/AboutViewProductionBG4.png") right center / cover );
+    @include block($height: 751px, $color: none);
+    background-image:
+        url('/AboutCompany/about_left.png'),
+        url('/AboutCompany/about_right.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right center;
+    background-size: auto, auto;
   }
   .about_group{
     width: 1650px;
+    height: 100%;
     display: flex;
     justify-content: flex-start;
+    @include width_screen;
   }
   .textes{
     @include display(flex-start, flex-start, 17px, column);
-    @include block($width: 715px,$height: auto, $color: transparent);
+    @include block($width: 774px,$height: auto, $color: transparent);
+    text-align: justify;
   }
   h3{
     @include fonts($size: 48px, $family: (Rubik Mono One, sans-serif), $weight: 400);
-    width: 685px;
+    width: 100%;
   }
   .p_about {
     @include fonts($size: 32px, $family: (Roboto Condensed, sans-serif), $weight: 300, $transform: none);
-    width: 714px;
+    width: 100%;
   }
   strong{
     font-weight: 500;
@@ -99,16 +108,21 @@
     }
     .p_about{
       font-size: 26px;
-      width: 495px;
     }
     .about{
       align-items: center;
       height: auto;
       padding-bottom: 40px;
       padding-top: 40px;
+      background-image:
+        url('/AboutCompany/about_left_600.png'),
+        url('/AboutCompany/about_right_600.png');
     }
     .about_group{
       @include width_screen;
+    }
+    .textes{
+      width: 430px;
     }
   }
 
@@ -119,19 +133,23 @@
     }
     .p_about{
       font-size: 17px;
-      width: 262px;
     }
     .about{
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       height: 510px;
+      background-image:
+        url('/AboutCompany/about_left_600.png'),
+        url('/AboutCompany/about_right_600.png');
+      background-size: 300px, 300px;
     }
     .textes{
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       height: 100%;
+      width: 300px;
     }
     .about_group{
       @include width_screen;
@@ -144,18 +162,21 @@
     }
     .p_about{
       font-size: 16px;
-      width: 262px;
     }
     .about{
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 500px;
+      background-image:
+        url('/AboutCompany/about_left_400.png'),
+        url('/AboutCompany/about_right_400.png');
     }
     .textes{
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      width: 254px;
     }
     .about_group{
       @include width_screen;

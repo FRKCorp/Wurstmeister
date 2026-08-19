@@ -4,6 +4,8 @@
 
 <template>
   <div class="about">
+    <img src="/AboutCompany/AboutCompanySalt.png" class="about_image"/>
+    <img src="/AboutCompany/AboutCompanySalt_400.png" class="about_image_400"/>
     <div class="about_group">
       <div class="textes">
         <h3>
@@ -22,16 +24,38 @@
   @use "@/styles/styles" as *;
   .about{
     @include display(center,center,$gap: 17px, $flex-direction: column);
-    @include block($height: 771px, $color: url("/AboutCompanyBG.png") left top / cover);
+    @include block($height: 771px, $color: black);
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  .about_image{
+    display: block;
+    position: absolute;
+    float: left;
+    left: 0;
+    width: auto;
+    height: 100%;
+    z-index: 0;
+  }
+  .about_image_400{
+    display: none;
+    position: absolute;
+    float: left;
+    left: 0;
+    width: auto;
+    height: 100%;
+    z-index: 0;
   }
   .about_group{
     width: 1650px;
     display: flex;
     justify-content: flex-end;
+    @include width_screen;
   }
   .textes{
     @include display(flex-start, flex-end, 17px, column);
-    @include block($width: 715px,$height: auto, $color: transparent);
+    @include block($width: 774px,$height: auto, $color: transparent);
+    text-align: justify;
   }
   h3{
     @include fonts($size: 48px, $family: (Rubik Mono One, sans-serif), $weight: 400);
@@ -40,7 +64,7 @@
   }
   .p_about {
     @include fonts($size: 32px, $family: (Roboto Condensed, sans-serif), $weight: 300, $transform: none);
-    width: 714px;
+    width: 100%;
   }
   strong{
     font-weight: 500;
@@ -75,6 +99,12 @@
     .p_about{
       font-size: 30px;
     }
+    .about_image{
+      left: -160px;
+    }
+    .textes{
+      width: 674px;
+    }
   }
 
   @media screen and (min-width: 800px)and (max-width: 999px){
@@ -94,16 +124,17 @@
     .about_group{
       @include width_screen;
     }
+    .about_image{
+      left: -175px;
+    }
   }
 
   @media screen and (min-width: 601px)and (max-width: 799px){
     h3{
       font-size: 37px;
-      width: 495px;
     }
     .p_about{
       font-size: 26px;
-      width: 495px;
     }
     .about{
       align-items: center;
@@ -114,17 +145,21 @@
     .about_group{
       @include width_screen;
     }
+    .about_image{
+      left: -175px;
+    }
+    .textes{
+      width: 430px;
+    }
   }
 
 
   @media screen and (min-width: 400px) and (max-width: 600px){
     h3{
       @include h2_400();
-      width: 262px;
     }
     .p_about{
       font-size: 17px;
-      width: 262px;
     }
     .about{
       flex-direction: column;
@@ -136,10 +171,15 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
+      width: 300px;
+      height: 100%;
     }
     .about_group{
       @include width_screen;
       height: 266px;
+    }
+    .about_image{
+      left: -110px;
     }
   }
   @media screen and (max-width: 400px){
@@ -161,10 +201,17 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
+      width: 254px;
     }
     .about_group{
       @include width_screen;
       height: 266px;
+    }
+    .about_image{
+      display: none;
+    }
+    .about_image_400{
+      display: block;
     }
   }
 </style>

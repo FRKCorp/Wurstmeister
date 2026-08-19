@@ -5,7 +5,7 @@
 <template>
   <div class="items">
     <video autoplay muted loop playsinline preload="auto" class="bg-video">
-      <source src="/header_video.mp4" type="video/mp4">
+      <source src="/AboutCompany/video_hdr.mp4" type="video/mp4">
     </video>
 
     <div class="content">
@@ -34,11 +34,9 @@
   .bg-video {
     position: absolute;
     float: right;
-    top: 0;
     right: 0;
-    width: 1092px;
-    height: 698px;
-    object-fit: cover;
+    width: auto;
+    height: 100%;
     z-index: 0;
   }
 
@@ -46,14 +44,6 @@
     content: "";
     position: absolute;
     inset: 0;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0) 70%,
-        rgba(141,88,10,0.45) 100%
-      );
     z-index: 1;
   }
 
@@ -106,6 +96,9 @@
     .logo_image {
       @include img(221px, 177px, 0px);
     }
+    .bg-video {
+      right: -100px;
+    }
   }
 
 
@@ -116,6 +109,9 @@
 
     .logo_image {
       @include img(221px, 177px, 0px);
+    }
+    .bg-video {
+      right: -150px;
     }
   }
 
@@ -146,7 +142,7 @@
     .bg-video{
       height: 467px;
       width: 757px;
-      right: -100px;
+      right: -160px;
     }
   }
   @media screen and (min-width: 600px)and (max-width: 799px) {
@@ -175,7 +171,7 @@
     .bg-video{
       height: 467px;
       width: 757px;
-      right: -100px;
+      right: -160px;
     }
   }
   @media screen and (min-width: 400px)and (max-width: 600px){
@@ -190,6 +186,7 @@
     h1{
       font-size: 26px;
       @include width_screen;
+      padding-bottom: 10px;
     }
 
     .logo_image {
@@ -202,7 +199,7 @@
     .bg-video{
       height: 282px;
       width: 491px;
-      right: -100px;
+      right: -140px;
     }
   }
   @media screen and (max-width: 400px) {
@@ -217,6 +214,7 @@
     h1 {
       font-size: 26px;
       @include width_screen;
+      padding-bottom: 10px;
     }
 
     .logo_image {
@@ -229,7 +227,7 @@
     .bg-video {
       height: 282px;
       width: 491px;
-      right: -100px;
+      right: -90px;
     }
   }
 

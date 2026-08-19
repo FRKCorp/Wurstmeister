@@ -61,8 +61,12 @@ const quailites = [
 @use "@/styles/styles" as *;
 
 .quality_block {
-  @include block($height: 955px, $color: url("/QualityBG.png") center center / cover no-repeat);
+  @include block($height: 955px, $color: none);
   @include display(center, center);
+  background-image: url('/AboutCompany/quality_particle.png'), url('/AboutCompany/BGQuality.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, center center;
+  background-size: auto, cover;
 }
 
 .quality_section {
@@ -169,7 +173,6 @@ h2 {
     padding-bottom: 50px;
     align-items: center;
     justify-content: center;
-    background: url("/About_Quality_1300.png") left top / cover;
   }
   .quality_section{
     @include width_screen;
@@ -192,7 +195,6 @@ h2 {
     padding-bottom: 50px;
     align-items: center;
     justify-content: center;
-    background: url("/QualityBG.png") left top / cover;
   }
   .quality_section{
     @include width_screen;
@@ -224,7 +226,6 @@ h2 {
     height: auto;
     padding-top: 82px;
     padding-bottom: 50px;
-    background: url("/About_Quality.png") left top / cover;
   }
   .quality_section{
     @include width_screen;
@@ -258,7 +259,7 @@ h2 {
    пересечения (600-799, 800-999, 1000-1024) эти правила для
    .qualities и .quality побеждают в каскаде.
    Выше 1024px раскладка остаётся прежней (старые брейкпоинты не трогаем). */
-@media screen and (min-width: 600px) and (max-width: 1024px) {
+@media screen and (min-width: 600px) and (max-width: 1062px) {
   .quality_section{
     align-items: center;
     justify-content: center;
@@ -283,6 +284,9 @@ h2 {
 
 /* 450–599px: 2 колонки */
 @media screen and (min-width: 471px) and (max-width: 599px) {
+  .quality_block{
+    background-image: url('/AboutCompany/qualiti_particle_600.png'), url('/AboutCompany/BGQuality.png');
+  }
   .quality_section{
     align-items: center;
     height: auto;
@@ -360,6 +364,11 @@ h2 {
   }
   .number{
     font-size: 35px;
+  }
+}
+@media screen and (max-width: 400px){
+  .quality_block {
+    background-image: url('/AboutCompany/qualiti_particle_400.png'), url('/AboutCompany/BGQuality.png');
   }
 }
 </style>
