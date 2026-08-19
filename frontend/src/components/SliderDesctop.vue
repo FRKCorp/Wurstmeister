@@ -102,7 +102,12 @@ const items = [
   .mySwiper {
     @include display($gap: 20px);
     width: 1000px;
+    height: auto;
   }
+  swiper{
+    height: auto;
+  }
+  swiper-initialized{} swiper-horizontal{}
   .card {
     @include button($width: 315px, $height: 417px, $radius: 40px, $border: 4px solid white, $color: transparent);
     overflow: hidden;

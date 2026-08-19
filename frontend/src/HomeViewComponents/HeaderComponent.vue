@@ -5,7 +5,7 @@
 <template>
   <div class="items">
     <video autoplay muted loop playsinline preload="auto" class="bg-video">
-      <source src="/header_video.mp4" type="video/mp4">
+      <source src="/HomePage/header_video.mp4" type="video/mp4">
     </video>
 
     <div class="content">
@@ -14,11 +14,8 @@
         <h1>WURSTMEISTER</h1>
         <h2>-Больше, чем
           добавки</h2>
-        <h3>основа идеального вкуса</h3>
+        <h3>основа идеального продукта</h3>
       </header>
-      <button class="to_form_button">
-        Смотреть товары
-      </button>
     </div>
 
   </div>
@@ -36,11 +33,9 @@
   }
   .bg-video {
     position: absolute;
-    float: right;
-    top: 0;
     right: 0;
-    width: 1092px;
-    height: 698px;
+    width: auto;
+    height: 100%;
     object-fit: cover;
     z-index: 0;
   }
@@ -95,17 +90,10 @@
       $weight: 400,
       $transform: lowercase
     );
+    padding-bottom: 150px;
   }
 
-  .to_form_button {
-    @include button(1016px, 66px, 25px, transparent, (3px solid white));
-    @include fonts(36px, (Roboto Condensed, sans-serif), $weight: 300, $transform: none, $align: center);
-    position: relative;
-    z-index: 2;
-  }
-
-
-  @media screen and (min-width: 1280px) and (max-width: 1650px) {
+  @media screen and (min-width: 1280px) and (max-width: 3000px) {
 
     .content {
       @include width_screen;
@@ -113,6 +101,9 @@
 
     .logo_image {
       @include img(221px, 177px, 0px);
+    }
+    .bg-video {
+      right: -200px;
     }
   }
 
@@ -125,6 +116,9 @@
     .logo_image {
       @include img(221px, 177px, 0px);
     }
+    .bg-video {
+      right: -180px;
+    }
   }
 
 
@@ -136,8 +130,8 @@
     .logo_image {
       @include img(221px, 177px, 0px);
     }
-    .to_form_button{
-      @include width_screen;
+    .bg-video {
+      right: -200px;
     }
   }
 
@@ -147,7 +141,7 @@
       @include width_screen;
     }
     .items{
-      height: 467px;
+      height: 550px;
     }
     h1{
       width: 534px;
@@ -161,51 +155,57 @@
     .logo_image {
       @include img(105px, 84px, 0px);
     }
-    .to_form_button {
-      @include button(298px, 50px, 30px, linear-gradient(-122deg, $moc 9%, #623700 51%, $moc 90%), (1px solid $moc));
-      @include fonts(28px, (Roboto Condensed, sans-serif), $weight: 400, $transform: none, $align: center);
-    }
     .content{
       gap: 29px;
       align-items: flex-start;
     }
     .bg-video{
-      height: 467px;
-      width: 757px;
-      right: -100px;
+      height: 100%;
+      right: -180px;
     }
   }
   @media screen and (min-width: 601px)and (max-width: 799px) {
+    h1{
+      font-size: 45px;
+    }
+    h2 {
+      font-size: 28px;
+      width: 300px;
+    }
+    h3{
+      font-size: 30px;
+      width: 250px;
+      padding: 0;
+    }
     .content {
+      padding-top: 10px;
       @include width_screen;
     }
     .items{
-      height: 461px;
+      height: 401px;
+      justify-content: flex-start;
     }
 
     .logo_image {
       @include img(105px, 84px, 0px);
     }
-    .to_form_button {
-      @include button(298px, 50px, 30px, linear-gradient(-122deg, $moc 9%, #623700 51%, $moc 90%), (1px solid $moc));
-      @include fonts(28px, (Roboto Condensed, sans-serif), $weight: 400, $transform: none, $align: center);
-    }
     .content{
       gap: 29px;
       align-items: flex-start;
     }
     .bg-video{
-      height: 467px;
-      width: 757px;
-      right: -100px;
+      right: -130px;
     }
   }
   @media screen and (max-width: 600px){
     .content {
+      padding-top: 10px;
       @include width_screen;
+
     }
     .items {
-      height: 282px;
+      height: 250px;
+      justify-content: flex-start;
     }
     h1{
       font-size: 36px;
@@ -217,22 +217,17 @@
     }
     h3{
       font-size: 18px;
+      padding: 0;
     }
 
     .logo_image {
       @include img(65px, 52px, 0px);
-    }
-    .to_form_button {
-      @include button(149px, 30px, 30px, linear-gradient(-122deg, $moc 9%, #623700 51%, $moc 90%), (1px solid $moc));
-      @include fonts(13px, (Roboto Condensed, sans-serif), $weight: 400, $transform: none, $align: center);
     }
     .content{
       gap: 22px;
       align-items: flex-start;
     }
     .bg-video{
-      height: 282px;
-      width: 491px;
       right: -100px;
     }
   }

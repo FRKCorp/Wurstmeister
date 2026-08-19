@@ -167,7 +167,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 500px;
+      height: 550px;
       background-image:
         url('/AboutCompany/about_left_400.png'),
         url('/AboutCompany/about_right_400.png');

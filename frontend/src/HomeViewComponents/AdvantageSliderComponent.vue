@@ -15,25 +15,24 @@
   @use "@/styles/styles" as *;
   .advantage{
     @include display(center, center, 0px, row);
-    @include block($height: 174px, $color: url("/AdvantageSlider.png") center/cover no-repeat);
+    @include block($height: 202px, $color: url("/HomePage/SliderAdvantage.png") center/cover no-repeat);
+    border-top: 1px solid #FFA011;
+    border-bottom: 1px solid #FFA011;
     z-index: 2;
   }
   .elements{
     @include display(flex-start, center, 46px, row);
-    padding-bottom: 20px;
   }
   .advantage_p{
-    padding-top: 20px;
-    @include fonts($size: 40px,$family: (Roboto Condensed, sans-serif), $weight: 400);
-    width: 715px;
+    @include fonts($size: 40px,$family: (Roboto Condensed, sans-serif), $weight: 700);
+    width: 585px;
   }
   .advantage_img{
-    @include img(187px, 187px, 90px);
+    @include img(149px, 140px, 90px);
     background: url("/advantage_1.png") center;
     flex-shrink: 0;
     border: 0;
     box-shadow: 1px 4px 74.3px #FFA011;
-    z-index: 2;
   }
 
 
@@ -47,7 +46,7 @@
   @media screen and (min-width: 1150px) and (max-width: 1279px){
     .advantage_p{
       font-size: 35px;
-      width: 715px;
+      width: 515px;
     }
   }
 
@@ -55,18 +54,18 @@
   @media screen and (min-width: 1000px) and (max-width: 1149px){
     .advantage_p{
       font-size: 30px;
-      width: 630px;
+      width: 460px;
     }
   }
-  @media screen and (min-width: 801px) and (max-width: 999px){
+  @media screen and (min-width: 800px) and (max-width: 999px){
     .advantage_p{
-      font-size: 35px;
-      width: 550px;
+      font-size: 30px;
+      width: 440px;
     }
   }
 
 
-  @media screen and (min-width: 600px)and (max-width: 800px){
+  @media screen and (min-width: 600px)and (max-width: 799px){
     .advantage{
       height: 174px;
     }
@@ -75,7 +74,7 @@
     }
     .advantage_p{
       font-size: 30px;
-      width: 327px;
+      width: 440px;
     }
     .advantage_img{
       @include img(131px,131px,90px);
