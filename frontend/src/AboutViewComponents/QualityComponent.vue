@@ -326,7 +326,6 @@ h2 {
 @media screen and (max-width: 470px) {
   .quality_block {
     height: auto;
-    padding-top: 52px;
     align-items: center;
     padding-bottom: 40px;
   }

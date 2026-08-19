@@ -67,7 +67,8 @@ import SliderMobilw from "@/components/SliderMobilw.vue";
   }
   @media screen and (max-width: 600px){
     .ingredients{
-      height: 349px;
+      height: 100%;
+      padding-bottom: 30px;
       gap: 0px;
     }
     .title{

@@ -195,7 +195,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 600px;
+      height: 550px;
     }
     .textes{
       flex-direction: column;

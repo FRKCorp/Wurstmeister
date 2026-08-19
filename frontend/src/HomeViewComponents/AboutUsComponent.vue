@@ -4,6 +4,7 @@
 
 <template>
   <div class="about">
+    <img src="/HomePage/AboutCompanySpecies.png" class="about_image"/>
     <div class="about_group">
       <div class="textes">
       <h3>
@@ -26,16 +27,28 @@
   .about{
 
     @include display(center,center,$gap: 17px, $flex-direction: column);
-    @include block($height: 707px,$color: url("/about.png"));
+    @include block($height: 707px,$color: black);
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  .about_image{
+    display: block;
+    position: absolute;
+    float: left;
+    left: 0;
+    width: auto;
+    height: 100%;
+    z-index: 0;
   }
   .about_group{
     width: 1650px;
     display: flex;
     justify-content: flex-end;
   }
+
   .textes{
     @include display(flex-start, flex-start, 17px, column);
-    @include block($width: 715px,$height: auto, $color: transparent);
+    @include block($width: 46%,$height: auto, $color: transparent);
   }
   h3{
     @include fonts($size: 48px, $family: (Rubik Mono One, sans-serif), $weight: 400);
@@ -43,7 +56,7 @@
   }
   .p_about {
     @include fonts($size: 36px, $family: (Roboto Condensed, sans-serif), $weight: 400, $transform: none);
-    width: 714px;
+    width: 766px;
     height: auto;
     white-space: pre-line;
   }
@@ -65,6 +78,12 @@
     .about_group{
       @include width_screen;
     }
+    .textes{
+      width: 62%;
+    }
+    .about_image{
+      left: -110px;
+    }
   }
 
 
@@ -78,44 +97,86 @@
     .p_about{
       font-size: 30px;
     }
+    .textes{
+      width: 62%;
+    }
+    .about_image{
+      left: -180px;
+    }
   }
 
-
+  @media screen and (min-width: 801px)and (max-width: 999px){
+    h3{
+      @include h2_800;
+    }
+    .p_about{
+      font-size: 24px;
+      width: 500px;
+    }
+    .about{
+      align-items: flex-end;
+    }
+    .textes{
+      width: 55%;
+    }
+    .about_image{
+      left: -100px;
+    }
+  }
   @media screen and (min-width: 601px)and (max-width: 800px){
     h3{
       @include h2_800;
     }
     .p_about{
-      font-size: 26px;
+      font-size: 24px;
+      width: 500px;
     }
     .about{
       align-items: flex-end;
     }
-    .about_group{
-      width: 497px;
+    .textes{
+      width: 55%;
+    }
+    .about_image{
+      width: 500px;
+      height: 600px;
+      left: -170px;
     }
   }
-
-
   @media screen and (max-width: 600px){
     h3{
       @include h2_400();
     }
     .p_about{
-      font-size: 16px;
+      font-size: 14px;
+      height: 100%;
     }
     .about{
+      padding-top: 40px;
       align-items: flex-end;
-
+      height: 100%;
+      padding-bottom: 30px;
     }
     .about_group{
       width: 265px;
-      height: 266px;
+      height: 100%;
       padding-right: 20px;
     }
-    .about{
-      height: 353px;
-      background: url("/about_mobile.png") ;
+    .textes{
+      height: 100%;
+    }
+    .about_image{
+      left: -90px;
+    }
+  }
+  @media screen and (min-width: 501px) and (max-width: 600px){
+    .about_image{
+      left: -20px;
+    }
+  }
+  @media screen and (max-width: 500px){
+    .about_image{
+      left: -90px;
     }
   }
 </style>
