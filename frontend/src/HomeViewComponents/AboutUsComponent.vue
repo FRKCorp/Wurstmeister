@@ -110,7 +110,7 @@
       @include h2_800;
     }
     .p_about{
-      font-size: 24px;
+      font-size: 26px;
       width: 500px;
     }
     .about{
@@ -140,7 +140,6 @@
     .about_image{
       width: 500px;
       height: 600px;
-      left: -170px;
     }
   }
   @media screen and (max-width: 600px){
@@ -156,25 +155,46 @@
       align-items: flex-end;
       height: 100%;
       padding-bottom: 30px;
+      @include width_screen;
     }
     .about_group{
-      width: 265px;
+      width: 60%;
       height: 100%;
-      padding-right: 20px;
     }
     .textes{
       height: 100%;
+      width: 100%;
     }
     .about_image{
       left: -90px;
     }
   }
+  @media screen and (min-width: 1100px) and (max-width: 1150px){
+    .about_image{
+      left: -12vw;
+    }
+  }
+  @media screen and (min-width: 730px) and (max-width: 800px){
+    .about_image{
+      left: -12vw;
+    }
+  }
+  @media screen and (min-width: 601px) and (max-width: 729px){
+    .about_image{
+      left: -20vw;
+    }
+  }
   @media screen and (min-width: 501px) and (max-width: 600px){
+    .about_image{
+      left: 0px;
+    }
+  }
+  @media screen and (min-width: 401px) and (max-width: 500px){
     .about_image{
       left: -20px;
     }
   }
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 400px){
     .about_image{
       left: -90px;
     }
