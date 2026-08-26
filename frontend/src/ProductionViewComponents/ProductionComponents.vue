@@ -70,7 +70,15 @@
   @use "@/styles/styles" as *;
   .types_block{
     @include display(center,center,0px, row);
-    @include block(100vw, 1495px, $color: url("/Products_Comp.png"));
+    @include block(100vw, 100%, $color: none);
+    background-image:
+        url("/ProductionPage/flame_up.png"),
+        url('/ProductionPage/ProductionComponents.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right center;
+    background-size: auto, cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
   .types_row{
     @include display(space-between, flex-start);
@@ -94,6 +102,7 @@
     @include block(424px, 100%, $color: rgba(39, 32, 22, 1));
     border: 21px solid rgba(28, 21, 10, 1);
     border-radius: 16px;
+    outline: 2px solid rgba(255, 160, 17, 0.4);
   }
   .default{
     @include block(424px, auto, $color: #372F22);
@@ -126,14 +135,20 @@
   h3{
     @include fonts(28px, $weight: 400, $transform: none);
     white-space: pre-line;
+    text-align: justify;
   }
   @media screen and (min-width: 1280px) and (max-width: 1650px) {
+    .default{
+      width: 100%;
+    }
     .types_row{
       @include width_screen;
     }
   }
   @media screen and (min-width: 1150px) and (max-width: 1279px){
-
+    .default{
+      width: 95%;
+    }
     .types_row{
       @include width_screen;
     }
@@ -145,7 +160,7 @@
     }
   }
   //две таблицы и фон
-  @media screen and (min-width: 400px) and (max-width: 1149px){
+  @media screen and (min-width: 290px) and (max-width: 1149px){
     .table_one {
       display: none;
     }
@@ -170,8 +185,8 @@
   }
   @media screen and (min-width: 1000px) and (max-width: 1149px){
     .types_block{
-      height: 1950px;
-      background: url("/Products_tablet_1950.png");
+      height: auto;
+      padding-bottom: 0;
     }
     .types_row{
       @include width_screen;
@@ -185,6 +200,7 @@
       align-items: center;
       @include width_screen;
       gap: 10px;
+      width: 100%;
     }
     .group_types{
       border: 11px solid rgba(28, 21, 10, 1);
@@ -200,11 +216,16 @@
       @include width_screen;
     }
     .types_block{
-      height: 1950px;
-      background: url("/Products_tablet_1950.png");
+      height: auto;
+      padding-top: 50px;
+      padding-bottom: 0;
+    }
+    .textes{
+      width: 100%;
     }
     h2{
       font-size: 37px;
+      text-align: center;
     }
     h3{
       font-size: 30px;
@@ -219,14 +240,17 @@
       @include width_screen;
     }
     .types_block{
-      height: 1200px;
-      background: url("/Products_mobile_1200.png");
+      height: auto;
+      padding-top: 50px;
+      padding-bottom: 50px;
     }
     h2{
-      font-size: 24px;
+      font-size: 30px;
+      text-align: center;
+      padding-bottom: 10px;
     }
     h3{
-      font-size: 16px;
+      font-size: 22px;
     }
     .group_types{
       width: 380px;
@@ -234,7 +258,10 @@
     }
     .default{
       font-size: 13px;
-      width: 250px;
+      width: 100%;
+      p{
+        font-size: 15px;
+      }
     }
     .default img {
       width: 27px;
@@ -249,11 +276,14 @@
       @include width_screen;
     }
     .types_block{
-      height: 1350px;
-      background: url("/Products_mobile_1350.png");
+      height: auto;
+      padding-top: 50px;
+      padding-bottom: 50px;
     }
     h2{
       font-size: 24px;
+      text-align: center;
+      padding-bottom: 15px;
     }
     h3{
       font-size: 16px;
@@ -266,11 +296,8 @@
       border: 5px solid rgba(28, 21, 10, 1);
     }
     .table_two .default{
-      font-size: 11px;
-      width: 180px;
-    }
-    .table_two .default p{
       width: 100%;
+      height: 100%;
     }
     .default img {
       width: 27px;
@@ -278,6 +305,67 @@
     }
     .table_two .group_types{
       height: 500px;
+    }
+    .default p{
+      font-size: 13px;
+      max-width: 83%;
+    }
+  }
+  @media screen and (max-width: 399px){
+    .types_row{
+      @include width_screen;
+      flex-direction: column-reverse;
+      order: 2;
+      height: auto;
+      gap: 50px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .types_block{
+      height: auto;
+      padding-top: 50px;
+      padding-bottom: 30px;
+    }
+    h2{
+      font-size: 22px;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+    h3{
+      font-size: 15px;
+    }
+    .table_two{
+      gap: 10px;
+      @include width_screen;
+    }
+    .table_two .default{
+      width: 100%;
+      height: 100%;
+    }
+    .default img {
+      width: 27px;
+      height: 27px;
+    }
+    .table_two .group_types{
+      height: auto;
+      width: 49.6%;
+      border: 5px solid rgba(28, 21, 10, 1);
+    }
+    .default p{
+      font-size: 13px;
+      width: 83%;
+    }
+  }
+  @media screen and (max-width: 290px) {
+    .types_row{
+      align-items: center;
+    }
+    .table_one {
+      @include width_screen;
+    }
+    .group_types{
+      width: 100%;
+      border: 5px solid rgb(28, 21, 10);
     }
   }
 </style>

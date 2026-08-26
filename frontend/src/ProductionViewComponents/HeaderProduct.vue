@@ -19,7 +19,7 @@ const name = inject("name")
 
   header {
     @include display(center, center, 0, column);
-    @include block(100%, 420px, 1, url("/Products_bg_main.png") center top / cover);
+    @include block(100%, 420px, 1, url("/ProductionPage/ProductionHeader_1280.png") center center / cover);
   }
   .hdr_section{
     @include display(center, flex-start, 0, column);
@@ -41,7 +41,6 @@ const name = inject("name")
       @include width_screen;
     }
     header {
-      background: url("/Products_bg_main.png") center top;
       height: 366px;
     }
     .logo_image {
@@ -55,7 +54,6 @@ const name = inject("name")
       @include width_screen;
     }
     header {
-      background: url("/Products_bg_main_1150.png") center top ;
       height: 366px;
     }
     .logo_image {
@@ -69,18 +67,19 @@ const name = inject("name")
       @include width_screen;
     }
     header {
-      background: url("/Products_bg_main_1000.png") center top / no-repeat cover;
       height: 366px;
     }
+    h1{
+      font-size: 44px;
+    }
     .logo_image {
-      @include img(221px, 177px, 0px);
+      @include img(131px, 107px, 0px);
     }
   }
 
 
   @media screen and (min-width: 800px)and (max-width: 999px){
     header{
-      background: url("/Products_bg_tablet.png") center top;
       height: 219px;
     }
     .hdr_section{
@@ -91,6 +90,7 @@ const name = inject("name")
     }
     h1{
       width: 534px;
+      @include h2_800;
     }
 
     .logo_image {
@@ -104,13 +104,17 @@ const name = inject("name")
   @media screen and (min-width: 600px)and (max-width: 799px) {
     .hdr_section{
       @include width_screen;
+      height: auto;
+    }
+    header {
+      height: 200px;
     }
     .items{
-      height: 461px;
+      height: auto;
     }
     h1{
-      font-size: 42px;
       @include width_screen;
+      font-size: 37px;
     }
 
     .logo_image {
@@ -121,7 +125,7 @@ const name = inject("name")
       align-items: flex-start;
     }
   }
-  @media screen and (min-width: 400px)and (max-width: 600px){
+  @media screen and (max-width: 600px){
     header{
       height: 150px;
     }
