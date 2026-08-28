@@ -12,17 +12,17 @@ const items = [
   {
     id: 1,
     title: "ДЛЯ ВАРЕНЫХ КОЛБАС",
-    image: "/img1.png"
+    image: "/HomePage/img1.png"
   },
   {
     id: 2,
     title: "ДЛЯ ИНЪЕКТИРОВАНИЯ",
-    image: "/img2.png"
+    image: "/HomePage/img2.png"
   },
   {
     id: 3,
     title: "ДЛЯ ПОЛУФАБРИКАТОВ",
-    image: "/img3.png"
+    image: "/HomePage/img3.png"
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const items = [
   <div class="carousel-wrapper">
 
       <button class="custom-arrow" @click="swiper?.slidePrev()">
-        <img class="left" src="/Vector.svg">
+        <img class="left" src="/HomePage/Vector.svg">
       </button>
       <Swiper
         :modules="[Navigation]"
@@ -59,7 +59,7 @@ const items = [
         </SwiperSlide>
       </Swiper>
       <button class="custom-arrow" @click="swiper?.slideNext()">
-         <img class="right" src="/strelka_right.svg">
+         <img class="right" src="/HomePage/strelka_right.svg">
       </button>
 
     </div>

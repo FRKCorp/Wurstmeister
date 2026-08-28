@@ -20,7 +20,13 @@ import SliderMobilw from "@/components/SliderMobilw.vue";
   @use "@/styles/styles" as *;
   .ingredients{
     @include display(center,center,69px, column);
-    @include block(100%, 705px,$color: url("/BackgroundIngredients.svg") center center / cover no-repeat);
+    @include block(100%, 705px,$color: none);
+    background-image:
+        url("/HomePage/left_1.png"),
+        url('/HomePage/right_3.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom, right bottom;
+    background-size: auto, auto;
   }
   .title {
     @include display(flex-start, center, 0px, row);
@@ -55,8 +61,11 @@ import SliderMobilw from "@/components/SliderMobilw.vue";
   }
   @media screen and (min-width: 601px)and (max-width: 799px){
     .ingredients{
-      height: 570px;
+      height: auto;
       gap: 0px;
+      padding-bottom: 50px;
+      padding-top: 50px;
+      background-position: calc(0% - 30px) bottom, calc(100% + 80px) bottom;
     }
     .title{
       @include width_screen;
@@ -71,7 +80,8 @@ import SliderMobilw from "@/components/SliderMobilw.vue";
     .ingredients{
       height: 100%;
       padding-bottom: 30px;
-      gap: 0px;
+      gap: 0;
+      background-position: calc(0% - 80px) bottom, calc(100% + 80px) bottom;
     }
     .title{
       @include width_screen;

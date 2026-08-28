@@ -35,7 +35,7 @@
     position: absolute;
     right: 0;
     width: auto;
-    height: 100%;
+    height: 10x0%;
     object-fit: cover;
     z-index: 0;
   }

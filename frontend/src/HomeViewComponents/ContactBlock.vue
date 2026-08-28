@@ -84,7 +84,13 @@ const closePopup = () => {
   @use "@/styles/styles" as *;
   .contacts_form{
     @include display(center,center);
-    @include block(100%, 435px, $color: url("/BackgroundContact.svg") center center / cover no-repeat);
+    @include block(100%, 435px, $color: none);
+    background-image:
+        url("/HomePage/left_down_1.png"),
+        url('/HomePage/light_down_right.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right top;
+    background-size: auto, auto;
 
   }
   .contacts{
@@ -118,13 +124,13 @@ const closePopup = () => {
     border-color: #FFA011;
   }
   .i_name{
-    background: url("/nf.png") no-repeat ;
+    background: url("/HomePage/nf.png") no-repeat ;
   }
   .i_phone{
-    background: url("/phonef.png") no-repeat;
+    background: url("/HomePage/phonef.png") no-repeat;
   }
   .i_msg{
-    background: url("/msgf.png") no-repeat;
+    background: url("/HomePage/msgf.png") no-repeat;
     padding-top: 15px;
     width: 497px;
     height: 130px
@@ -291,6 +297,7 @@ const closePopup = () => {
     }
     .contacts_form{
       height: 535px;
+      background-position: calc(0% - 30px) top, calc(100% + 80px) top;
     }
     img{
       width: 35px;
@@ -329,7 +336,8 @@ const closePopup = () => {
       @include width_screen;
     }
     .contacts_form{
-      height: 300px
+      height: 300px;
+      background-position: calc(0% - 80px) top, calc(100% + 80px) top;
     }
     form{
       display: none;

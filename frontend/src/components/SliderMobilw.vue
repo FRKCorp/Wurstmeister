@@ -5,17 +5,17 @@ const items = [
   {
     id: 1,
     title: "ДЛЯ ВАРЕНЫХ КОЛБАС",
-    image: "/img1.png"
+    image: "/HomePage/img1.png"
   },
   {
     id: 2,
     title: "ДЛЯ ИНЪЕКТИРОВАНИЯ",
-    image: "/img2.png"
+    image: "/HomePage/img2.png"
   },
   {
     id: 3,
     title: "ДЛЯ ПОЛУФАБРИКАТОВ",
-    image: "/img3.png"
+    image: "/HomePage/img3.png"
   },
   {
     id: 4,
@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="carousel-wrapper">
     <button v-if="showArrows" class="custom-arrow" @click="slidePrev">
-      <img class="left" src="/Vector.svg">
+      <img class="left" src="/HomePage/Vector.svg">
     </button>
 
     <div ref="viewportRef" class="mySwiper">
@@ -182,7 +182,7 @@ onBeforeUnmount(() => {
     </div>
 
     <button v-if="showArrows" class="custom-arrow" @click="slideNext">
-      <img class="right" src="/strelka_right.svg">
+      <img class="right" src="/HomePage/strelka_right.svg">
     </button>
   </div>
 </template>

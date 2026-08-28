@@ -29,7 +29,7 @@
   }
   .advantage_img{
     @include img(149px, 140px, 90px);
-    background: url("/advantage_1.png") center;
+    background: url("/HomePage/advantage_1.png") center;
     flex-shrink: 0;
     border: 0;
     box-shadow: 1px 4px 74.3px #FFA011;
