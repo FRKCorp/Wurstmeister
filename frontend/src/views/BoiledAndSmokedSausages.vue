@@ -1,25 +1,11 @@
 <script setup lang="ts">
   import {provide} from "vue";
   import HeaderWithoutVideo from "@/SausagesViewsComponents/HeaderWithoutVideo.vue";
-  import TypesSauseges from "@/SausagesViewsComponents/TypesSausegesComponent.vue";
   import TableComponent from "@/SausagesViewsComponents/TableComponent.vue";
   import SausagesAllComponent from "@/SausagesViewsComponents/SausagesAllComponent.vue";
   import { ref, onMounted, onUnmounted } from 'vue';
 
   const name = "ДЛЯ ВАРЁНО-КОПЧЁНЫХ, ПОЛУКОПЧЁНЫХ, СЫРОКОПЧЁНЫХ КОЛБАС И ВЕТЧИН"
-  const first_types = [
-      {"img": "/types_icons/icon_product.png", "text": "ВКУСО-АРОМАТИЧЕСКИЕ КОМПОЗИЦИИ", "style": "head_type"},
-      {"img": "/types_icons/icon_product.png", "text": "ДЛЯ ВАРЁНО-КОПЧЁНЫХ, ПОЛУКОПЧЁНЫХ, СЫРОКОПЧЁНЫХ КОЛБАС И ВЕТЧИН", "style": "big_p"},
-      {"img": "/types_icons/icon_product.png", "text": "ДЛЯ ВАРЕНЫХ КОЛБАС", "style": "default"},
-      {"img": "/types_icons/icon_product.png", "text": "ДЛЯ ВСЕХ ВИДОВ КОЛБАС И МЯСНЫХ ИЗДЕЛИЙ", "style": "big_p"},
-  ]
-  const second_types = [
-      {"img": "/types_icons/icon_product.png", "text": "функциональные добавки", "style": "head_type"},
-      {"img": "/types_icons/icon_product.png", "text": "ДЛЯ ИНЪЕКТИРОВАНИЯ", "style": "default"},
-      {"img": "/types_icons/icon_product.png", "text": "КОМПЛЕКСНЫЕ ДОБАВКИ", "style": "default"},
-      {"img": "/types_icons/icon_product.png", "text": "ДЛЯ ПОЛУФАБРИКАТОВ", "style": "default"},
-      {"img": "/types_icons/icon_product.png", "text": "ДЛЯ РЫБНЫХ ИЗДЕЛИЙ", "style": "default"},
-  ]
   const grid_items = [
       {
         "name": "Салями Комби Испанская W.M.",
@@ -153,8 +139,6 @@
   provide("name", name)
   provide("grid_items", grid_items)
   provide("species", species)
-  provide("first_types", first_types)
-  provide("second_types", second_types)
   provide("Sausages", sausages)
 
   const isDesktop = ref(false);
@@ -174,7 +158,6 @@
   <main>
       <SausagesAllComponent v-if="!isDesktop" />
       <template v-else>
-        <TypesSauseges />
         <TableComponent />
       </template>
   </main>

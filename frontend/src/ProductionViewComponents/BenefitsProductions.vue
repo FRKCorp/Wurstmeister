@@ -70,7 +70,7 @@ const quailites = [
   background-repeat: no-repeat;
   background-position: left top;
   background-size: auto;
-  padding-top: 50px;
+  padding-top: 80px;
   padding-bottom: 100px;
 }
 
@@ -139,8 +139,10 @@ h2 {
 
 @media screen and (min-width: 1150px) and (max-width: 1279px) {
   .quality_block {
-    height: 880px;
+    height: auto;
     background-size: cover;
+    padding-top: 70px;
+    padding-bottom: 90px;
   }
   .quality_section {
     @include width_screen;
@@ -170,8 +172,8 @@ h2 {
   .quality_block {
     height: auto;
     background: none;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    padding-top: 80px;
+    padding-bottom: 70px;
   }
   .quality_section {
     align-items: center;
@@ -201,9 +203,9 @@ h2 {
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
   .quality_block {
-    padding-top: 80px;
     height: auto;
-    padding-bottom: 40px;
+    padding-top: 70px;
+    padding-bottom: 60px;
   }
   .quality_section {
     @include width_screen;
@@ -244,6 +246,8 @@ h2 {
 @media screen and (min-width: 600px) and (max-width: 799px) {
   .quality_block {
     height: auto;
+    padding-top: 60px;
+    padding-bottom: 50px;
   }
   h2 {
     font-size: 37px;
@@ -278,6 +282,8 @@ h2 {
 @media screen and (min-width: 400px) and (max-width: 599px) {
   .quality_block {
     height: auto;
+    padding-top: 50px;
+    padding-bottom: 40px;
   }
   .quality_section {
     gap: 35px;
@@ -314,7 +320,8 @@ h2 {
 @media screen and (max-width: 399px) {
   .quality_block {
     height: auto;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 30px;
   }
   .quality_section {
     gap: 35px;
