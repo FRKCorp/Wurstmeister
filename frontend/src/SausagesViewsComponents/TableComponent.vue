@@ -48,6 +48,8 @@ const species = inject("species")
     @include display(center,center,20px, column);
     width: 100%;
     background: transparent;
+    padding-top: 80px;
+    padding-bottom: 100px;
   }
   .names{
     display: flex;
@@ -191,6 +193,10 @@ const species = inject("species")
     }
   }
   @media screen and (min-width: 1150px) and (max-width: 1279px){
+    .types_block{
+      padding-top: 70px;
+      padding-bottom: 90px;
+    }
     .tables_grids{
       @include width_screen;
     }
