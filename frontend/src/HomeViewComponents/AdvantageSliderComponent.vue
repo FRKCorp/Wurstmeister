@@ -97,5 +97,4 @@
       @include img(72px,72px,90px);
     }
   }
-
 </style>

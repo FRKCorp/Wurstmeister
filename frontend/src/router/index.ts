@@ -10,6 +10,10 @@ const router = createRouter({
 
   routes: [
     {
+      path: '/flavour-compositions',
+      component: () => import('@/views/FlavourCompositionsView.vue')
+    },
+    {
       path: "/",
       component: HomeView
     },

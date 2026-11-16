@@ -43,8 +43,8 @@ const closePopup = () => {
       <div class="contacts">
         <h2>Контакты</h2>
         <div class="contacts_for">
-          <div class="contact" v-for="{img, txt} in textes">
-            <img :src="img">
+          <div class="contact" v-for="{img, txt} in textes" :key="txt">
+            <img :src="img" alt="">
             <p>{{txt}}</p>
           </div>
         </div>
@@ -55,9 +55,9 @@ const closePopup = () => {
         </div>
       </div>
       <form>
-        <input class="i_name" v-model="name" placeholder="Введите ваше имя" />
-        <input class="i_phone" v-model="phone" placeholder="Введите ваш номер телефона" />
-        <textarea class="i_msg" v-model="message" placeholder="Сообщение"></textarea>
+        <input class="i_name" v-model="name" aria-label="Ваше имя" autocomplete="name" placeholder="Введите ваше имя" />
+        <input class="i_phone" v-model="phone" type="tel" aria-label="Номер телефона" autocomplete="tel" placeholder="Введите ваш номер телефона" />
+        <textarea class="i_msg" v-model="message" aria-label="Сообщение" placeholder="Сообщение"></textarea>
         <button type="submit" >отправить заявку</button>
       </form>
     </div>
@@ -65,11 +65,12 @@ const closePopup = () => {
 <Teleport to="body">
   <transition name="popup">
     <div v-if="isPopupOpen" class="popup_overlay" @click.self="closePopup">
-      <div class="popup">
+      <div class="popup" role="dialog" aria-modal="true" aria-label="Оставить заявку" @keydown.esc="closePopup">
+        <button type="button" class="popup-close" aria-label="Закрыть форму" @click="closePopup">×</button>
         <form class="popup_form">
-          <input class="i_name mobile_msg" v-model="name" placeholder="Введите ваше имя"/>
-          <input class="i_phone mobile_msg" v-model="phone" placeholder="Введите ваш номер телефона"/>
-          <textarea class="i_msg mobile_msg" v-model="message" placeholder="Сообщение"></textarea>
+          <input class="i_name mobile_msg" v-model="name" aria-label="Ваше имя" autocomplete="name" placeholder="Введите ваше имя"/>
+          <input class="i_phone mobile_msg" v-model="phone" type="tel" aria-label="Номер телефона" autocomplete="tel" placeholder="Введите ваш номер телефона"/>
+          <textarea class="i_msg mobile_msg" v-model="message" aria-label="Сообщение" placeholder="Сообщение"></textarea>
           <button type="submit">
             Отправить заявку
           </button>
@@ -81,309 +82,32 @@ const closePopup = () => {
 </template>
 
 <style scoped lang="scss">
-  @use "@/styles/styles" as *;
-  .contacts_form{
-    @include display(center,center);
-    @include block(100%, 435px, $color: none);
-    background-image:
-        url("/HomePage/left_down_1.png"),
-        url('/HomePage/light_down_right.png');
-    background-repeat: no-repeat, no-repeat;
-    background-position: left top, right top;
-    background-size: auto, auto;
+@use "@/styles/styles" as *;
 
-  }
-  .contacts{
-    @include display(flex-start, flex-start, 38px, column);
-    width: 1050px;
-  }
-  .contacts_block{
-    @include display(space-between,flex-start);
-    width: 1650px;
-  }
-  .contacts_for{
-    @include display(flex-start, flex-start, 23px, column);
-  }
-  h2{
-    @include h2();
-  }
-  p{
-    @include fonts($size: 24px,$family: (Roboto Condensed, sans-serif), $weight: 300, $transform: none);
-    width: 500px;
-    white-space: pre-line;
-  }
-  form{
-    @include display(flex-start, flex-start, 9px, column);
-    @include block(497px, 372px, )
-  }
-  input, textarea{
-    @include display(center, center);
-    @include button(497px, 55px,  10px, transparent);
-    padding-left: 65px;
-    @include fonts($size: 15px,$family: (Roboto Condensed, sans-serif), $weight: 400, $transform: none);
-    border-color: #FFA011;
-  }
-  .i_name{
-    background: url("/HomePage/nf.png") no-repeat ;
-  }
-  .i_phone{
-    background: url("/HomePage/phonef.png") no-repeat;
-  }
-  .i_msg{
-    background: url("/HomePage/msgf.png") no-repeat;
-    padding-top: 15px;
-    width: 497px;
-    height: 130px
-  }
-  button{
-    @include button(497px, 49px,10px, linear-gradient(-115deg, $moc 0%, rgba(#623700, 0.3) 51%,  $moc 100%));
-    @include fonts($size: 16px, $weight: 600);
-  }
-
-
-  // mobile
-
-  .popup_overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-
-  .popup{
-    position:relative;
-    width:90%;
-    padding:22px 21px 24px;
-    border-radius:20px;
-    background:#090603;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .popup_form{
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    gap:16px;
-  }
-  .popup_form input,
-  .popup_form textarea{
-    width:90%;
-  }
-
-  .popup_form .i_msg{
-    height:130px;
-  }
-
-  .popup_form button{
-      margin-top:16px;
-      width: 90%;
-      height:49px;
-  }
-
-  .popup-enter-active,
-  .popup-leave-active{
-    transition:.25s;
-  }
-
-  .popup-enter-from,
-  .popup-leave-to{
-    opacity:0;
-  }
-
-  .popup-enter-from .popup,
-  .popup-leave-to .popup{
-    transform:scale(.9);
-  }
-  .mobile_msg{
-    font-size: 11px;
-  }
-  @media screen and (min-width: 1280px) and (max-width: 1650px) {
-    .contacts_block{
-      @include width_screen;
-    }
-    .contacts {
-      width: 620px;
-    }
-    .form{
-      width: 497px;
-    }
-    button{
-      margin-top: 60px;
-    }
-  }
-  @media screen and (min-width: 1150px) and (max-width: 1279px){
-    .contacts_block {
-      @include width_screen;
-    }
-
-    form{
-      width: 497px;
-      gap: 10px;
-      height: 372px;
-    }
-    button{
-      margin-top: 50px;
-    }
-  }
-
-
-  @media screen and (min-width: 1000px) and (max-width: 1149px){
-    .contacts_block{
-      @include width_screen;
-    }
-    p{
-      font-size: 20px;
-      width: 400px;
-    }
-    h2{
-      @include h2_800();
-    }
-    .contacts{
-      gap: 18px;
-      height: 372px;
-    }
-  }
-
-
-  @media screen and (min-width: 800px)and (max-width: 999px){
-    .contacts_block{
-      @include width_screen;
-    }
-    form{
-      width: 400px;
-    }
-    img{
-      width: 35px;
-      height: 35px;
-    }
-    .contacts_block{
-      align-items: flex-start;
-    }
-
-    h2{
-      @include h2_800();
-    }
-    .contacts_for{
-      gap: 15px;
-    }
-    .contacts{
-      width: 350px;
-      gap: 10px;
-    }
-    p{
-      width: 313px;
-      font-size: 20px;
-    }
-
-  }
-
-  .mobile_form{
-      display:none;
-  }
-  @media screen and (min-width: 601px)and (max-width: 799px){
-    form{
-      display: none;
-    }
-    .mobile_form{
-        display:block;
-    }
-    .contacts_block{
-      @include width_screen;
-    }
-    .contacts_form{
-      height: 535px;
-      background-position: calc(0% - 30px) top, calc(100% + 80px) top;
-    }
-    img{
-      width: 35px;
-      height: 35px;
-    }
-
-    h2{
-      @include h2_800();
-    }
-    .contacts_for{
-      gap: 15px;
-    }
-    .contacts{
-      gap: 10px;
-    }
-    p{
-      width: 100%;
-      font-size: 20px;
-    }
-    input{
-      width: 252px;
-    }
-    .i_msg{
-      width: 252px;
-    }
-    button{
-      width: 252px;
-    }
-    .mobile_msg{
-      font-size: 15px;
-    }
-
-  }
-  @media screen and (max-width: 600px){
-    .contacts_block{
-      @include width_screen;
-    }
-    .contacts_form{
-      height: 300px;
-      background-position: calc(0% - 80px) top, calc(100% + 80px) top;
-    }
-    form{
-      display: none;
-    }
-    .mobile_form{
-        display:block;
-    }
-    .open_btn{
-      width: 176px;
-      height: 26px;
-      border-radius: 12px;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      background: linear-gradient(-115deg, $moc 0%, rgba(#623700, 0.3) 51%,  $moc 100%);
-      border: solid 1px $moc;
-    }
-    img{
-      width: 23px;
-      height: 23px;
-    }
-
-    h2{
-      @include h2_400 ();
-    }
-    .contacts_for{
-      gap: 15px;
-    }
-    .contacts{
-      width: 350px;
-      gap: 10px;
-    }
-    p{
-      width: 280px;
-      font-size: 14px;
-    }
-    input{
-      width: 252px;
-    }
-    .i_msg{
-      width: 252px;
-    }
-    button{
-      width: 252px;
-    }
-
-  }
+.contacts_form, .contacts_form *, .popup_overlay, .popup_overlay * { float: none; }
+.contacts_form { display: flex; justify-content: center; width: 100%; padding: 48px 0 64px; background: url('/HomePage/left_down_1.png') left top no-repeat, url('/HomePage/light_down_right.png') right top no-repeat; }
+.contacts_block { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); align-items: start; gap: 40px; width: min(1650px, calc(100% - 132px)); }
+.contacts { display: flex; flex-direction: column; gap: 32px; min-width: 0; }
+h2 { margin: 0; font: 700 clamp(32px, 5.45vw, 70px)/1.15 'Montserrat', sans-serif; color: #fff; text-transform: uppercase; }
+.contacts_for { display: flex; flex-direction: column; gap: 18px; width: 100%; }
+.contact { display: flex; align-items: flex-start; gap: 14px; width: 100%; }
+.contact img { width: 30px; height: 30px; flex-shrink: 0; }
+p { margin: 0; font: 400 clamp(16px, 1.7vw, 22px)/1.4 'Montserrat', sans-serif; color: #dadada; white-space: pre-line; overflow-wrap: anywhere; }
+form { display: flex; flex-direction: column; align-items: stretch; gap: 10px; width: 100%; padding-top: 12px; }
+input, textarea { display: block; width: 100%; min-width: 0; height: 50px; border: 1px solid #a3660b; border-radius: 10px; padding: 12px 16px 12px max(66px, 12%); font: 400 16px/1.4 'Montserrat', sans-serif; color: #fff; background-color: #ffa0110d; }
+.i_name { background-image: url('/HomePage/nf.png'); background-repeat: no-repeat; background-position: 0 center; background-size: 100% 100%; }
+.i_phone { background-image: url('/HomePage/phonef.png'); background-repeat: no-repeat; background-position: 0 center; background-size: 100% 100%; }
+.i_msg { background-image: url('/HomePage/msgf.png'); background-repeat: no-repeat; background-position: left top; background-size: 100% 100%; height: 128px; resize: vertical; }
+button { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 49px; border: 1px solid #ffa011; border-radius: 10px; background: linear-gradient(125deg, #ffa011, #6237004d 52%, #ffa011); color: #fff; font: 400 16px/1.3 'Montserrat', sans-serif; text-transform: uppercase; cursor: pointer; }
+form > button { margin-top: 20px; }
+input:focus-visible, textarea:focus-visible, button:focus-visible { outline: 2px solid #ffa011; outline-offset: 3px; }
+.mobile_form { display: none; }
+.popup_overlay { position: fixed; inset: 0; display: flex; justify-content: center; align-items: center; padding: 24px 16px; background: #000c; z-index: 1100; }
+.popup { position: relative; width: min(520px, 100%); max-height: 90dvh; overflow-y: auto; border: 1px solid #a3660b; border-radius: 20px; background: #090603; padding: 56px 24px 24px; }
+.popup_form { padding: 0; }
+.popup-close { position: absolute; right: 12px; top: 8px; width: 40px; min-height: 40px; font-size: 28px; background: transparent; border: 0; }
+.popup-enter-active, .popup-leave-active { transition: opacity .25s; }
+.popup-enter-from, .popup-leave-to { opacity: 0; }
+@media (max-width: 1100px) { .contacts_block { width: calc(100% - 64px); gap: 24px; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); } input, textarea { font-size: 14px; } }
+@media (max-width: 767px) { .contacts_block { display: flex; flex-direction: column; width: calc(100% - 32px); } .contacts { width: 100%; gap: 24px; } .contacts_block > form { display: none; } .mobile_form { display: block; width: min(320px, 100%); } .contacts_form { padding-block: 32px 48px; } h2 { font-size: 30px; } p { font-size: 16px; } .contact img { width: 26px; height: 26px; } }
 </style>
