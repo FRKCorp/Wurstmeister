@@ -93,6 +93,12 @@ $moc: #FFA011; //самый частый оранжевый цвет
     background-color: transparent;
   }
 
+html, body, #app {
+  float: none;
+  width: 100%;
+  min-height: 100%;
+}
+
 @mixin h2
 {
   @include fonts($size: 48px, $family: ("Rubik Mono One", sans-serif), $color: white);

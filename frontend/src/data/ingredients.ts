@@ -1,13 +1,13 @@
 export const ingredientCategories = [
-  { id: 1, title: 'Вкусоароматические композиции', image: '/HomePage/figma/compositions.png', url: '/flavour-compositions' },
-  { id: 2, title: 'Ароматы специй', image: '/HomePage/figma/spices.png', url: '/production' },
-  { id: 3, title: 'Комплексные пищевые добавки', image: '/HomePage/figma/additives.png', url: '/production' },
-  { id: 4, title: 'Функциональные добавки', image: '/HomePage/figma/compositions.png', url: '/production' },
-  { id: 5, title: 'Пищевые красители', image: '/HomePage/figma/spices.png', url: '/production' },
-  { id: 6, title: 'Консерванты', image: '/HomePage/figma/additives.png', url: '/production' },
-  { id: 7, title: 'Добавки для полуфабрикатов', image: '/HomePage/figma/compositions.png', url: '/production' },
-  { id: 8, title: 'Маринады', image: '/HomePage/figma/spices.png', url: '/production' },
-  { id: 9, title: 'Добавки для созревания', image: '/HomePage/figma/additives.png', url: '/production' },
+  { id: 1, title: 'Вкусоароматические композиции', image: '/HomePage/figma/compositions.png', url: '/boilednsmokedsausages' },
+  { id: 2, title: 'Ароматы специй', image: '/HomePage/figma/spices.png', url: '/products/spice-aromas' },
+  { id: 3, title: 'Комплексные пищевые добавки', image: '/HomePage/figma/additives.png', url: '/products/complex-additives' },
+  { id: 4, title: 'Функциональные добавки', image: '/HomePage/figma/compositions.png', url: '/products/functional-additives' },
+  { id: 5, title: 'Пищевые красители', image: '/HomePage/figma/spices.png', url: '/products/food-colours' },
+  { id: 6, title: 'Консерванты', image: '/HomePage/figma/additives.png', url: '/products/preservatives' },
+  { id: 7, title: 'Добавки для полуфабрикатов', image: '/HomePage/figma/compositions.png', url: '/products/semi-finished-additives' },
+  { id: 8, title: 'Маринады', image: '/HomePage/figma/spices.png', url: '/products/marinades' },
+  { id: 9, title: 'Добавки для созревания', image: '/HomePage/figma/additives.png', url: '/products/maturing-additives' },
 ];
 const names = `Арома фляйш WM
 Арома мит WM

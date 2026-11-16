@@ -10,6 +10,10 @@ const router = createRouter({
 
   routes: [
     {
+      path: '/products/:slug',
+      component: () => import('@/views/CategoryCatalogView.vue')
+    },
+    {
       path: '/flavour-compositions',
       component: () => import('@/views/FlavourCompositionsView.vue')
     },

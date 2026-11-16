@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { ref, inject, onMounted, onUnmounted } from 'vue'
+import { ref, inject, onMounted, onUnmounted, computed } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const catalogMenu = computed(() => ['/boilednsmokedsausages', '/boiledsausages', '/flavour-compositions'].includes(route.path) || route.path.startsWith('/products/'))
 import MenuButton from "@/components/Menu-button.vue"
 
 const isMenuOpen = ref(false)
@@ -32,7 +35,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="menu">
+  <div class="menu" :class="{ 'catalog-menu': catalogMenu }">
     <div class="menu_labels">
       <RouterLink to="/">
         <span class="name">WURST</span>
@@ -49,7 +52,7 @@ onUnmounted(() => {
       <div class="mobile-header-right">
         <button
           class="menu-button mobile-request-btn"
-          @click="closeMenu"
+          @click="closeMenu(); $router.push({ path: '/', hash: '#contacts' })"
         >
           ОСТАВИТЬ ЗАЯВКУ
         </button>
@@ -101,4 +104,14 @@ onUnmounted(() => {
 @media (max-width: 999px) { .desktop-menu { display: none; } .mobile-header-right { display: flex; } }
 @media (max-width: 767px) { .menu { height: 76px; } .menu_labels { width: calc(100% - 32px); gap: 12px; } .name { font-size: 18px; } .mobile-request-btn { width: 142px; height: 38px; font-size: 10px; } .mobile-header-right { gap: 10px; } }
 @media (max-width: 374px) { .name { font-size: 15px; } .mobile-request-btn { width: 116px; font-size: 9px; } }
+
+.catalog-menu .menu_labels { width: calc(100% - 68px); max-width: 1650px; }
+@media (min-width: 600px) and (max-width: 1149px) { .catalog-menu { height: 81px; } }
+@media (max-width: 599px) {
+ .catalog-menu { height: 95px; }
+ .catalog-menu .menu_labels { width: calc(100% - 36px); align-items: flex-start; padding-top: 21px; }
+ .catalog-menu .name { font-size: 20px; }
+ .catalog-menu .mobile-header-right { position: static; }
+ .catalog-menu .mobile-request-btn { position: absolute; top: 53px; left: 0; width: 176px; height: 23px; font-size: 12px; }
+}
 </style>

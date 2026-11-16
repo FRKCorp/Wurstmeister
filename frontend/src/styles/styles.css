@@ -8,4 +8,10 @@
   background-color: transparent;
 }
 
+html, body, #app {
+  float: none;
+  width: 100%;
+  min-height: 100%;
+}
+
 /*# sourceMappingURL=styles.css.map */

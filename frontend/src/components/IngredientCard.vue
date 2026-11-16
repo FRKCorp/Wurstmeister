@@ -2,7 +2,7 @@
 defineProps<{ item: { title: string; image: string; url: string } }>();
 </script>
 <template>
-  <RouterLink :to="item.url" target="_blank" rel="noopener noreferrer" :class="['ingredient-card', { 'spice-card': item.image.includes('spices'), 'additive-card': item.image.includes('additives') }]">
+  <RouterLink :to="item.url" :class="['ingredient-card', { 'spice-card': item.image.includes('spices'), 'additive-card': item.image.includes('additives') }]">
     <div class="image-stage"><img :src="item.image" alt="" draggable="false"></div>
     <span>{{ item.title }}</span>
   </RouterLink>
