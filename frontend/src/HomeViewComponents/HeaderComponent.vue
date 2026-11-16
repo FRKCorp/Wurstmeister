@@ -4,232 +4,34 @@
 
 <template>
   <div class="items">
-    <video autoplay muted loop playsinline preload="auto" class="bg-video">
+    <video autoplay muted loop playsinline preload="metadata" poster="/HomePage/figma/hero.png" class="bg-video">
       <source src="/HomePage/header_video.mp4" type="video/mp4">
     </video>
 
     <div class="content">
       <header>
-        <img class="logo_image" src="/logo_wurst.png">
+        <img class="logo_image" src="/HomePage/figma/logo.png" alt="Логотип Wurstmeister">
         <h1>WURSTMEISTER</h1>
-        <h2>-Больше, чем
-          добавки</h2>
-        <h3>основа идеального продукта</h3>
+        <h2>Производитель комплексных пищевых добавок для мясоперерабатывающей промышленности</h2>
       </header>
     </div>
 
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
+@use "@/styles/styles" as *;
 
-  @use "@/styles/styles" as *;
-
-  .items {
-    position: relative;
-    overflow: hidden;
-    @include display(center, center, 144px, column);
-    @include block(100%, 698px, $color: black);
-  }
-  .bg-video {
-    position: absolute;
-    right: 0;
-    width: auto;
-    height: 10x0%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  .items::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0,0,0,0) 0%,
-        rgba(0,0,0,0) 70%,
-        rgba(141,88,10,0.45) 100%
-      );
-    z-index: 1;
-  }
-
-  .content {
-    position: relative;
-    z-index: 2;
-    @include display(center, center, 144px, column);
-  }
-
-  header {
-    @include display(flex-start, flex-start, 0, column);
-    width: 1650px;
-  }
-
-  h1 {
-    @include fonts(
-      $size: 70px,
-      $family: (Rowdies, sans-serif),
-      $weight: 700
-    );
-    -webkit-text-stroke: 2px #FE9809;
-    width: 685px;
-  }
-  h2 {
-    @include fonts(
-      $size: 40px,
-      $family: (Rubik Mono One, sans-serif),
-      $weight: 400
-    );
-    width: 500px;
-  }
-  h3 {
-    @include fonts(
-      $size: 40px,
-      $family: (Roboto Condensed, sans-serif),
-      $weight: 400,
-      $transform: lowercase
-    );
-    padding-bottom: 150px;
-  }
-
-  @media screen and (min-width: 1280px) and (max-width: 3000px) {
-
-    .content {
-      @include width_screen;
-    }
-
-    .logo_image {
-      @include img(221px, 177px, 0px);
-    }
-    .bg-video {
-      right: -200px;
-    }
-  }
-
-
-  @media screen and (min-width: 1150px) and (max-width: 1279px){
-    .content {
-      @include width_screen;
-    }
-
-    .logo_image {
-      @include img(221px, 177px, 0px);
-    }
-    .bg-video {
-      right: -180px;
-    }
-  }
-
-
-  @media screen and (min-width: 1000px) and (max-width: 1149px){
-    .content {
-      @include width_screen;
-    }
-
-    .logo_image {
-      @include img(221px, 177px, 0px);
-    }
-    .bg-video {
-      right: -200px;
-    }
-  }
-
-
-  @media screen and (min-width: 800px)and (max-width: 999px){
-    .content{
-      @include width_screen;
-    }
-    .items{
-      height: 550px;
-    }
-    h1{
-      width: 534px;
-      font-size: 60px;
-    }
-    h2 {
-      font-size: 38px;
-      width: 500px;
-    }
-
-    .logo_image {
-      @include img(105px, 84px, 0px);
-    }
-    .content{
-      gap: 29px;
-      align-items: flex-start;
-    }
-    .bg-video{
-      height: 100%;
-      right: -180px;
-    }
-  }
-  @media screen and (min-width: 601px)and (max-width: 799px) {
-    h1{
-      font-size: 45px;
-    }
-    h2 {
-      font-size: 28px;
-      width: 300px;
-    }
-    h3{
-      font-size: 30px;
-      width: 250px;
-      padding: 0;
-    }
-    .content {
-      padding-top: 10px;
-      @include width_screen;
-    }
-    .items{
-      height: 401px;
-      justify-content: flex-start;
-    }
-
-    .logo_image {
-      @include img(105px, 84px, 0px);
-    }
-    .content{
-      gap: 29px;
-      align-items: flex-start;
-    }
-    .bg-video{
-      right: -130px;
-    }
-  }
-  @media screen and (max-width: 600px){
-    .content {
-      padding-top: 10px;
-      @include width_screen;
-
-    }
-    .items {
-      height: 250px;
-      justify-content: flex-start;
-    }
-    h1{
-      font-size: 36px;
-      width: 292px;
-    }
-    h2 {
-      font-size: 20px;
-      width: 250px;
-    }
-    h3{
-      font-size: 18px;
-      padding: 0;
-    }
-
-    .logo_image {
-      @include img(65px, 52px, 0px);
-    }
-    .content{
-      gap: 22px;
-      align-items: flex-start;
-    }
-    .bg-video{
-      right: -100px;
-    }
-  }
-
+.items, .items * { float: none; }
+.items { display: flex; align-items: center; width: 100%; min-height: 612px; overflow: hidden; background: #000 url('/HomePage/figma/hero.png') right center / auto 100% no-repeat; }
+.bg-video { position: absolute; top: 0; right: 0; bottom: 0; left: auto; width: 66%; height: 100%; object-fit: cover; object-position: right center; }
+.items::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #000 0%, #000b 28%, transparent 64%), linear-gradient(0deg, #ffa01133, transparent 32%); z-index: 1; }
+.content { width: min(1650px, calc(100% - 132px)); margin-inline: auto; z-index: 2; padding-block: 60px 80px; }
+header { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+.logo_image { width: 246px; height: 197px; object-fit: contain; margin-left: -22px; }
+h1 { margin: 0; font: 700 clamp(34px, 5.45vw, 70px)/1.15 'Montserrat', sans-serif; color: #fff; letter-spacing: -.03em; }
+h2 { width: min(595px, 52%); margin: 0; color: #fff; font: 400 clamp(20px, 2.35vw, 30px)/1.35 'Montserrat', sans-serif; text-transform: none; text-align: left; text-justify: inter-word; }
+@media (max-width: 1100px) { .content { width: calc(100% - 64px); } .items { min-height: 540px; } h2 { width: 52%; } }
+@media (max-width: 767px) { .content { width: calc(100% - 32px); padding-block: 32px 48px; } .items { min-height: 440px; } .logo_image { width: 150px; height: 120px; margin-left: -12px; } h1 { font-size: clamp(26px, 7.5vw, 48px); } h2 { width: min(440px, 90%); margin-top: 12px; font-size: 19px; } .bg-video { left: 0; width: 100%; object-position: 62% center; } .items::before { background: linear-gradient(90deg, #000e, #0007 70%, #0003); } }
+@media (prefers-reduced-motion: reduce) { .bg-video { display: none; } }
 </style>

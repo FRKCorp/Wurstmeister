@@ -5,8 +5,8 @@ import MenuButton from "@/components/Menu-button.vue"
 const isMenuOpen = ref(false)
 const windowWidth = ref(window.innerWidth)
 
-const textes = inject("menu")
-console.log(textes);
+const textes = inject<Array<{ name: string; url: import("vue-router").RouteLocationRaw }>>("menu", [])
+
 const closeMenu = () => {
   isMenuOpen.value = false
 }
@@ -40,11 +40,11 @@ onUnmounted(() => {
       </RouterLink>
       <div class="desktop-menu">
         <div class="menu-items">
-          <RouterLink v-for="item in textes" :key="item"  class="menu-button-text" :to="item.url">
+          <RouterLink v-for="item in textes" :key="item.name"  class="menu-button-text" :to="item.url">
             {{item.name}}
           </RouterLink>
         </div>
-        <button class="menu-button">ОСТАВИТЬ ЗАЯВКУ</button>
+        <button class="menu-button" @click="$router.push({ path: '/', hash: '#contacts' })">ОСТАВИТЬ ЗАЯВКУ</button>
       </div>
       <div class="mobile-header-right">
         <button
@@ -67,7 +67,7 @@ onUnmounted(() => {
       <div class="mobile-menu-content">
         <RouterLink
           v-for="item in textes"
-          :key="item"
+          :key="item.name"
           class="mobile-menu-item"
           @click="closeMenu"
           :to="item.url"
@@ -79,163 +79,26 @@ onUnmounted(() => {
   </transition>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 @use "@/styles/styles" as *;
 
-.menu {
-  padding: 0;
-  @include display($flex-direction: row, $justify-content: center);
-  @include block($width:100%, $height: 92px, $color: black);
-  position: relative;
-  z-index: 1001;
-}
-.menu_labels{
-  @include display($flex-direction: row, $justify-content: space-between);
-  @include block($width: 1650px, $height: 100%) ;
-}
-.name {
-  @include fonts($size: 24px, $weight: 900);
-}
-
-.desktop-menu {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-
-  @media (max-width: 999px) {
-    display: none;
-  }
-}
-
-.menu-items {
-  display: flex;
-  gap: 30px;
-}
-
-.menu-button-text {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: color 0.3s;
-
-  &:hover {
-    color: #FE9809;
-  }
-}
-
-.menu-button {
-  @include button($width: 203px, $height: 41px, $radius: 10px,
-    $color: linear-gradient(-127deg, $moc 0%, #623700 35%, #000000 50%, #623700 65%, $moc 100%));
-  @include fonts();
-  border: none;
-  cursor: pointer;
-}
-
-/* ==================== МОБИЛЬНАЯ ЧАСТЬ (800px и ниже) ==================== */
-.mobile-header-right {
-  display: none;
-  align-items: center;
-  gap: 20px;
-
-  @media (max-width: 999px) {
-    display: flex;
-  }
-}
-
-.mobile-request-btn {
-  @media (max-width: 999px) {
-    display: block;
-    width: 170px;
-    height: 40px;
-    font-size: 14px;
-  }
-}
-
-
-.mobile-menu {
-  position: fixed;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  z-index: 999;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.mobile-menu-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 200px;
-  gap: 45px;
-}
-
-.mobile-menu-item {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.3s;
-
-  &:hover {
-    color: #FE9809;
-  }
-}
-
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-
-@media (max-width: 999px) {
-  .menu {
-    justify-content: center;
-    padding: 0;
-    gap: 0;
-  }
-}
-
-
-
-@media screen and (min-width: 1280px) and (max-width: 1650px) {
-  .menu_labels { width: 97%; }
-}
-@media screen and (min-width: 1150px) and (max-width: 1279px) {
-  .menu_labels { width: 97% }
-}
-@media screen and (min-width: 1000px) and (max-width: 1149px) {
-  .menu_labels { width: 97% }
-}
-@media screen and (min-width: 800px)and (max-width: 999px){
-  .menu_labels { width: 97% }
-}
-@media screen and (min-width: 601px)and (max-width: 799px){
-  .menu_labels { width: 97% }
-}
-@media screen and (min-width: 401px) and (max-width: 600px){
-  .menu_labels { width: 97% }
-}
-@media screen and (max-width: 400px){
-  .menu_labels { width: 97% }
-  .mobile-request-btn{
-    width: 140px;
-  }
-  .mobile-header-right{
-    gap: 10px;
-  }
-}
+.menu, .menu *, .mobile-menu, .mobile-menu * { float: none; }
+.menu { display: flex; justify-content: center; width: 100%; height: 92px; background: #000; z-index: 1001; }
+.menu_labels { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(1650px, calc(100% - 108px)); height: 100%; }
+.menu_labels > a { display: flex; flex-shrink: 0; text-decoration: none; }
+.name { font: 900 24px/1.2 'Montserrat', sans-serif; color: #fff; }
+.desktop-menu, .menu-items { display: flex; align-items: center; gap: 30px; }
+.menu-button-text { color: #fff; text-transform: uppercase; text-decoration: none; font: 600 18px/1.3 'Montserrat', sans-serif; }
+.menu-button-text:hover, .mobile-menu-item:hover { color: #fe9809; }
+.menu-button { display: inline-flex; align-items: center; justify-content: center; width: 203px; height: 41px; border: 1px solid #ffa011; border-radius: 10px; background: linear-gradient(125deg, #ffa011, #6237004d 52%, #ffa011); color: white; font: 700 14px/1.2 'Montserrat', sans-serif; cursor: pointer; }
+.mobile-header-right { display: none; align-items: center; gap: 16px; }
+.mobile-menu { position: fixed; inset: 0; width: 100%; height: 100dvh; overflow-y: auto; background: #000; z-index: 1000; display: flex; justify-content: center; }
+.mobile-menu-content { display: flex; flex-direction: column; align-items: center; gap: 32px; padding: 140px 24px 40px; }
+.mobile-menu-item { font: 700 clamp(22px, 4vw, 32px)/1.4 'Montserrat', sans-serif; color: white; text-decoration: none; text-transform: uppercase; }
+.fade-enter-active, .fade-leave-active { transition: opacity .25s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+@media (max-width: 1199px) { .menu_labels { width: calc(100% - 64px); } .desktop-menu, .menu-items { gap: 18px; } .menu-button-text { font-size: 14px; } .name { font-size: 22px; } .menu-button { width: 180px; font-size: 12px; } }
+@media (max-width: 999px) { .desktop-menu { display: none; } .mobile-header-right { display: flex; } }
+@media (max-width: 767px) { .menu { height: 76px; } .menu_labels { width: calc(100% - 32px); gap: 12px; } .name { font-size: 18px; } .mobile-request-btn { width: 142px; height: 38px; font-size: 10px; } .mobile-header-right { gap: 10px; } }
+@media (max-width: 374px) { .name { font-size: 15px; } .mobile-request-btn { width: 116px; font-size: 9px; } }
 </style>
